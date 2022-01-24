@@ -6,7 +6,4 @@ $.getJSON('https://www.dnd5eapi.co/api/monsters/adult-black-dragon/', function(d
             var text2 = `Actions:${data.actions[i].desc}<br>`
             $(".actions").html(text2);
         }
-                    
-        
-        
 });
