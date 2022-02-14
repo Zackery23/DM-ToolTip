@@ -9,9 +9,6 @@ function monsterSearch(){
 
         var hCell1 = row.insertCell();
         hCell1.innerHTML = "Name";
-
-        var hCell2 = row.insertCell();
-        hCell2 = row.innerHTML = "HitPoints";
     }
     else{
         document.getElementById("monsterTable").remove();
@@ -26,6 +23,7 @@ function monsterSearch(){
     $.getJSON('https://www.dnd5eapi.co/api/monsters/', function(data){
             var searchField = "name";
             var searchVal = e.value;
+            var health = "hit_points";
 
             for (var i = 0; i <= data.results.length; i++){
                 var str = data.results[i][searchField]
@@ -37,7 +35,8 @@ function monsterSearch(){
                     cell.innerHTML = data.results[i][searchField];
                     
                     var cell2 = row.insertCell()
-                    cell2.innerHTML = "test";
+                    cell2.innerHTML = data.results[i][health];
+                    $.getJSON('https://www.dnd5eapi.co/api/monsters/')
 
                 }
                 
