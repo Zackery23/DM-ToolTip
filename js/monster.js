@@ -34,9 +34,9 @@ function monsterSearch(){
                     var cell = row.insertCell();
                     cell.innerHTML = data.results[i][searchField];
                     
-                    var cell2 = row.insertCell()
-                    cell2.innerHTML = data.results[i][health];
-                    $.getJSON('https://www.dnd5eapi.co/api/monsters/')
+                    $.getJSON('https://www.dnd5eapi.co/api/monsters/', function(data){
+                        
+                    });
 
                 }
                 
