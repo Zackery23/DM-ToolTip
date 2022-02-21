@@ -5,23 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    
+    <link rel="stylesheet" href="styles/main.css">
     <title>DMToolTip</title>
 </head>
 <body>
-    
-    <input type="text" id = "searchMonster" placeholder="Search.." oninput="runSearch()">
-    <table id = "table">
-        <thead>
-            <tr>
-                <th>Name</th> 
-                <th>Health</th>
-                <th>challenge rating</th>
-                <th>Attack</th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
+    <div id = "mySideNav" class = "sideNav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#" class = "navMovLink" onclick="changeSection(event, 'monsterList')">Monster List</a>
+        <a href="#" class = "navMovLink" onclick="changeSection(event, 'createMonster')">Monster create/Tracker</a>
+
+    </div>
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+    <div id="main">
+    </div>
+    <Article id = "monsterList" class = "navMove">
+        <input type="text"  id = "searchMonster" class = "create_monster/Info" placeholder="Search.." oninput="runSearch()">
+        <table  id = "table" class = "create_monster/Info">
+            <thead>
+                <tr>
+                    <th>Name</th> 
+                    <th>Health</th>
+                    <th>challenge rating</th>
+                    <th>Attack</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </Article>
+    <article id = "createMonster" class = "navMove">
+
+    </article>
     <script src="js/monster.js"></script>
 </body>
 </html>
