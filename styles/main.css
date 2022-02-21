@@ -45,8 +45,14 @@
     display: none;
     position: fixed; /* Stay in place */
     top: 2em; /* Stay at the top */
-    left: 55em;
+    left: 18em;
 
+  }
+  #mainPage{
+    position: fixed; /* Stay in place */
+    /*font-size: ;*/
+    top: 2em; /* Stay at the top */
+    left: 50em;
   }
   /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
   @media screen and (max-height: 450px) {
