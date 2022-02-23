@@ -66,7 +66,7 @@ async function makeMonster(){
   // get the JSon data fro each monster loaded to be displayed when searched for creation
   const response = await fetch("database/monsters.json");
   const data = await response.json();
-  console.log(data.monsters[10]);
+  //console.log(data.monsters[10]);
 
   // grabing the ids for where the data shall be place into
   let monsterName = document.getElementById("monsterName")
@@ -126,14 +126,28 @@ async function makeMonster(){
       
       for (var key in data.monsters[10]["actions"]){
         for (var key1 in data.monsters[10]["actions"][key]){
-          let dataP3 = document.createElement("sp");
+          let dataP3 = document.createElement("div");
           let pulled = data.monsters[10]["actions"][key][key1];
 
-          console.log(data.monsters[10]["actions"][key][key1]);
-          
-          if (key == "name" || key == "desc"){
-            dataP3.innerHTML = pulled;
-            actions.appendChild(dataP3);
+          // check if the keys are the information that we want from the api          
+          if (key1 == "name" || key1 == "desc"){
+            // check for if the key1 is a lair action 
+            if(key1 == "Lair Actions" && key1 == "desc"){
+
+              console.log(data.monsters[10]["actions"]["Lair Actions"]["desc"]);
+              // we need to alter \n to <br />
+              let str = pulled;
+              str = str.replace(/(?:\r\n|\r|\n)/g, '<br>');
+
+              console.log(str);
+
+              dataP3.innerHTML = str;
+              actions.appendChild(dataP3);
+            }
+            else{
+              dataP3.innerHTML = pulled;
+              actions.appendChild(dataP3);
+            }
           }
         
         }
