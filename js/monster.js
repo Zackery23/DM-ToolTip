@@ -37,7 +37,7 @@ async function loadMonsterTable(url, table, searchValue){
     }
 }
 function runSearch(){
-    loadMonsterTable("database/monsters.json", document.querySelector("table"), searchValue.value)
+    loadMonsterTable("data/monsters.json", document.querySelector("table"), searchValue.value)
 }
 function openNav() {
   document.getElementById("mySideNav").style.width = "250px";
@@ -64,7 +64,7 @@ function changeSection(evt, section) {
 // Grabing info on a specific monster 
 async function makeMonster(){
   // get the JSon data fro each monster loaded to be displayed when searched for creation
-  const response = await fetch("database/monsters.json");
+  const response = await fetch("data/monsters.json");
   const data = await response.json();
   //console.log(data.monsters[10]);
 
@@ -78,7 +78,7 @@ async function makeMonster(){
   let dataP1 = document.createElement("p");
   let dataP2 = document.createElement("p");
   
-  let dataP4 = document.createElement("p");
+
   //adding monsters name, size ,type and alignment  to the div of what was searched
   dataP1.innerHTML = data.monsters[10]["name"] + "<br />" 
       + " Size: " + data.monsters[10]["size"] + " Type: " + data.monsters[10]["type"] 
@@ -123,20 +123,19 @@ async function makeMonster(){
       + "Challenge Rating: " + data.monsters[10]["challenge_rating"];
   
       monsterStats_Immunites.appendChild(dataP2);
-      
+      //loop trhough all actions and if the creature has lair actions
       for (var key in data.monsters[10]["actions"]){
         for (var key1 in data.monsters[10]["actions"][key]){
           let dataP3 = document.createElement("div");
           let pulled = data.monsters[10]["actions"][key][key1];
-
           // check if the keys are the information that we want from the api          
           if (key1 == "name" || key1 == "desc"){
             // check for if the key1 is a lair action 
-            if(key1 == "Lair Actions" && key1 == "desc"){
+            if(data.monsters[10]["actions"][key]["name"] == "Lair Actions"){
 
-              console.log(data.monsters[10]["actions"]["Lair Actions"]["desc"]);
+              console.log(data.monsters[10]["actions"][key][key1]);
               // we need to alter \n to <br />
-              let str = pulled;
+              var str = pulled;
               str = str.replace(/(?:\r\n|\r|\n)/g, '<br>');
 
               console.log(str);
@@ -152,6 +151,16 @@ async function makeMonster(){
         
         }
 
+      }
+      // implements through if the the creatue has legendary actions
+      for (var key in data.monsters[10]["legendary_actions"]){
+        for (var key1 in data.monsters[10]["legendary_actions"][key]) {
+          if (key1 == "name" || key1 == "desc"){
+            let dataP4 = document.createElement("div");
+            dataP4.innerHTML = data.monsters[10]["legendary_actions"][key][key1] + "<br />"
+            actions.appendChild(dataP4);
+          }
+        }
       }
 }
   
