@@ -46,8 +46,9 @@ async function findIndexMonster(){
   const response = await fetch("data/monsters.json");
   const data = await response.json();
   const makeMonsterVal = document.getElementById("makeMonster");
-
-
+  
+  
+  // gets search value from user
   let mon = makeMonsterVal.value;
   
 
@@ -56,9 +57,18 @@ async function findIndexMonster(){
   //console.log(sliceUp);
   let searchValueUp = mon.charAt(0).toUpperCase() + sliceUp;
 
-  var index = data.monsters.indexOf(searchValueUp);
+  //var index = data.monsters.indexOf(searchValueUp);
+  let i = 0;
+  let len = data.monsters.length;
+  console.log(len);
+  while (i <= len){
+    if(data.monsters[i]["name"] == searchValueUp){
+      makeMonster(i);
+    }
+    i++
+  }
 
-  makeMonster(index);
+  
   
 }
 
@@ -69,31 +79,75 @@ async function makeMonster(index){
   // get the JSon data fro each monster loaded to be displayed when searched for creation
   const response = await fetch("data/monsters.json");
   const data = await response.json();
-
+  var monsterSkills = "";
 
   // grabing the ids for where the data shall be place into
   let monsterName = document.getElementById("monsterName")
   let monsterStats_Immunites = document.getElementById("monsterStats_Immunites");
-  let monsterAblites = document.getElementById("monsterAblites");
+  let monsterSpcialAblites = document.getElementById("monsterAblites");
   let actions = document.getElementById("actions");
-  
-  //data paragraph's to place data into the divs.
-  let dataP1 = document.createElement("p");
-  let dataP2 = document.createElement("p");
+  //check for skills
+  if (data.monsters[index]["acrobatics"] >= 0){
+    monsterSkills += "Acrobatics +" + data.monsters[index]["acrobatics"] + " ";
+  }
+  if (data.monsters[index]["arcana"] >= 0){
+    monsterSkills += "Arcana +" + data.monsters[index]["arcana"] + " ";
+  }
+  if (data.monsters[index]["athletics"] >= 0){
+    monsterSkills += "Athletics +" + data.monsters[index]["athletics"] + " ";
+  }
+  if (data.monsters[index]["deception"] >= 0){
+    monsterSkills += "Deception +" + data.monsters[index]["deception"] + " ";
+  }
+  if (data.monsters[index]["history"] >= 0){
+    monsterSkills += "History +" + data.monsters[index]["history"] + " ";
+  }
+  if (data.monsters[index]["insight"] >= 0){
+    monsterSkills += "Insight +" + data.monsters[index]["insight"] + " ";
+  }
+  if (data.monsters[index]["intimidation"] >= 0){
+    monsterSkills += "Intimidation +" + data.monsters[index]["intimidation"] + " ";
+  }
+  if (data.monsters[index]["investigation"] >= 0){
+    monsterSkills += "Investigation +" + data.monsters[index]["investigation"] + " ";
+  }
+  if (data.monsters[index]["medicine"] >= 0){
+    monsterSkills += "Medicine +" + data.monsters[index]["medicine"] + " ";
+  }
+  if (data.monsters[index]["nature"] >= 0){
+    monsterSkills += "Nature +" + data.monsters[index]["nature"] + " ";
+  }
+  if (data.monsters[index]["perception"] >= 0){
+    monsterSkills += "Perception +" + data.monsters[index]["perception"] + " ";
+  }
+  if (data.monsters[index]["performance"] >= 0){
+    monsterSkills += "Performance +" + data.monsters[index]["performance"] + " ";
+  }
+  if (data.monsters[index]["persuasion"] >= 0){
+    monsterSkills += "Persuasion +" + data.monsters[index]["persuasion"] + " ";
+  }
+  if (data.monsters[index]["religion"] >= 0){
+    monsterSkills += "Religion +" + data.monsters[index]["religion"] + " ";
+  }
+  if (data.monsters[index]["stealth"] >= 0){
+    monsterSkills += "Stealth +" + data.monsters[index]["stealth"] + " ";
+  }
+  if (data.monsters[index]["survival"] >= 0){
+    monsterSkills += "Survival +" + data.monsters[index]["survival"] + " ";
+  }
   
 
   //adding monsters name, size ,type and alignment  to the div of what was searched
-  dataP1.innerHTML = data.monsters[index]["name"] + "<br />" 
+  monsterName.innerHTML = data.monsters[index]["name"] + "<br />" 
       + " Size: " + data.monsters[index]["size"] + " Type: " + data.monsters[index]["type"] 
       + " Alignment: " + data.monsters[index]["alignment"];
-  monsterName.appendChild(dataP1);
   //console.log(monsterName);
  /* for (const key1 in data.monsters[10]) {
       console.log(data.monsters[10][key1])
   }
   */
-  dataP2.innerHTML = "Armor Class: " + data.monsters[index]["armor_class"] + "<br />" 
-      + " Health: " + data.monsters[index]["hit_points"] + 
+  monsterStats_Immunites.innerHTML = "Armor Class: " + data.monsters[index]["armor_class"] + "<br />" 
+      + " Health: " + data.monsters[index]["hit_points"]  
       + " (" + data.monsters[index]["hit_dice"] + ") " + "<br />" 
       + " Speed: " + data.monsters[index]["speed"] + "<br />" 
       + " STR DEX CON INT WIS CHA" + "<br />" + "<br />" 
@@ -116,8 +170,11 @@ async function makeMonster(index){
       +  data.monsters[index]["wisdom_save"]
       + ", CHA  + "
       +  data.monsters[index]["charisma_save"] + "<br />" 
-      + "Skills: " + "<br />" 
-      + "Damage Vulnerabilities " + data.monsters[index]["damage_vulnerabilities"] + "<br />" 
+
+      // checking to see if the creature has that skill
+      //console.log(monsterSkills);
+      + "Skills: " + monsterSkills + "<br />" 
+      + "Damage Vulnerabilities: " + data.monsters[index]["damage_vulnerabilities"] + "<br />" 
       + "Damage Resistances: " + data.monsters[index]["damage_resistances"] + "<br />" 
       + "Damage Immunities: " + data.monsters[index]["damage_immunities"] + "<br />" 
       + "Condtion_immunities: " + data.monsters[index]["condition_immunities"] + "<br />"
@@ -125,8 +182,8 @@ async function makeMonster(index){
       + "Languages: " + data.monsters[index]["languages"] + "<br />"
       + "Challenge Rating: " + data.monsters[index]["challenge_rating"];
   
-      monsterStats_Immunites.appendChild(dataP2);
       //loop trhough all actions and if the creature has lair actions
+      actions.innerHTML = "";
       for (var key in data.monsters[index]["actions"]){
         for (var key1 in data.monsters[index]["actions"][key]){
           let dataP3 = document.createElement("div");
@@ -165,6 +222,17 @@ async function makeMonster(index){
           }
         }
       }
+      monsterSpcialAblites.innerHTML = "";
+      // for monster Spcieal Abilites
+      for (var key in data.monsters[index]["special_abilities"]){
+        for (var key1 in data.monsters[index]["special_abilities"][key]) {
+          if (key1 == "name" || key1 == "desc"){
+            let dataP5 = document.createElement("div");
+            dataP5.innerHTML = data.monsters[index]["special_abilities"][key][key1] + "<br />"
+            monsterSpcialAblites.appendChild(dataP5);
+          }
+        }
+      }
 }
 // open nav menu
 function openNav() {
@@ -174,7 +242,7 @@ function openNav() {
 function closeNav() {
   document.getElementById("mySideNav").style.width = "0";
 }
-// Changes between the navigation oif the website
+// Changes between the navigation of the website
 function changeSection(evt, section) {
   var i, navMove, navMovLink;
   navMove = document.getElementsByClassName("navMove");
