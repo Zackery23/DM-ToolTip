@@ -44,7 +44,7 @@
   .navMove{
     display: none;
     position: fixed; /* Stay in place */
-    top: 4em; /* Stay at the top */
+    top: 1em; /* Stay at the top */
     left: 4em;
 
   }
@@ -54,6 +54,70 @@
     top: 2em; /* Stay at the top */
     left: 50em;
   }
+  /* Monster Template styling */
+  #template{
+    position: fixed;
+    top: 2em;
+    left: 10em;
+
+    background-color: rgba(253, 233, 144, 0.801);
+    border-top-style: solid;
+    border-top-width: 10px;
+    border-top-color:rgb(202, 108, 19);
+
+    
+
+    border-bottom-style: solid;
+    border-bottom-width: 15px;
+    border-bottom-color:rgba(202, 108, 19);
+    width: 40em;
+    height: 40em;
+    
+
+  }
+  #monsterMain{
+    width: 40em;
+    height: 40em;
+    
+  }
+  
+  #monsterStart{
+    font-size: x-large;
+    font-weight: bold;
+    color: rgb(206, 4, 4);
+
+    border-bottom-style:solid;
+    border-bottom-color: darkred;
+  }
+  #sp{
+    border-bottom-style:solid;
+    border-bottom-color: darkred;
+  }
+  #monsterActions{
+    font-size:large;
+    font-weight: bold;
+    color: rgb(206, 4, 4);
+
+    border-bottom-style:solid;
+    border-bottom-color:  darkred
+  }
+  #monsterLairActions{
+    font-size:large;
+    font-weight: bold;
+    color: rgb(206, 4, 4);
+
+    border-bottom-style:solid;
+    border-bottom-color:  darkred
+  }
+  #monsterSpellCasting{
+    font-size:large;
+    font-weight: bold;
+    color: rgb(206, 4, 4);
+
+    border-bottom-style:solid;
+    border-bottom-color:  darkred
+  }
+  
   /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
   @media screen and (max-height: 450px) {
     .sideNav {padding-top: 15px;}
