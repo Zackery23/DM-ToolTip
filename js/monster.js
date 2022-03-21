@@ -1,7 +1,4 @@
 const searchValue = document.getElementById("searchMonster");
-
-
-
 async function loadMonsterTable(url, table, searchValue){
     const tableBody = table.querySelector("tbody");
 
@@ -45,7 +42,7 @@ function runSearch(){
 async function findIndexMonster(){
   const response = await fetch("data/monsters.json");
   const data = await response.json();
-  const makeMonsterVal = document.getElementById("makeMonster");
+  const makeMonsterVal = document.getElementById("monsterSearch");
   
   
   // gets search value from user
@@ -80,7 +77,7 @@ async function makeMonster(index){
   const response = await fetch("data/monsters.json");
   const data = await response.json();
   var monsterSkills = "";
-
+  var monsterSavingThrows = "";
   // grabing the ids for where the data shall be place into
   let monsterName = document.getElementById("monsterName")
   let monsterStats_Immunites = document.getElementById("monsterStats_Immunites");
@@ -135,6 +132,26 @@ async function makeMonster(index){
   if (data.monsters[index]["survival"] >= 0){
     monsterSkills += "Survival +" + data.monsters[index]["survival"] + " ";
   }
+
+  //check for Saving throw modiferies
+  if (data.monsters[index]["strength_save"] > 0){
+    monsterSavingThrows += "STR: +" + data.monsters[index]["strength_save"] + " ";
+  }
+  if (data.monsters[index]["dexterity_save"] > 0){
+    monsterSavingThrows += "DEX: +" + data.monsters[index]["dexterity_save"] + " ";
+  }
+  if (data.monsters[index]["constitution_save"] > 0){
+    monsterSavingThrows += "CON: +" + data.monsters[index]["constitution_save"] + " ";
+  }
+  if (data.monsters[index]["intelligence_save"] > 0){
+    monsterSavingThrows += "INT: +" + data.monsters[index]["intelligence_save"] + " ";
+  }
+  if (data.monsters[index]["wisdom_save"] > 0){
+    monsterSavingThrows += "WIS: +" + data.monsters[index]["wisdom_save"] + " ";
+  }
+  if (data.monsters[index]["charisma_save"] > 0){
+    monsterSavingThrows += "CHA: +" + data.monsters[index]["charisma_save"] + " ";
+  } 
   
 
   //adding monsters name, size ,type and alignment  to the div of what was searched
@@ -157,20 +174,7 @@ async function makeMonster(index){
       + data.monsters[index]["intelligence"] + " "
       + data.monsters[index]["wisdom"] + " "
       + data.monsters[index]["charisma"] + " " + "<br />"
-      + " Saving Throws: " 
-      + " STR + " 
-      +  data.monsters[index]["strength_save"]
-      + ", DEX  + "
-      +  data.monsters[index]["dexterity_save"]
-      + ", CON + "
-      +  data.monsters[index]["constitution_save"]
-      + ", INT + "
-      +  data.monsters[index]["intelligence_save"]
-      + ", Wis + "
-      +  data.monsters[index]["wisdom_save"]
-      + ", CHA  + "
-      +  data.monsters[index]["charisma_save"] + "<br />" 
-
+      + " Saving Throws: " +  monsterSavingThrows + "<br />" 
       // checking to see if the creature has that skill
       //console.log(monsterSkills);
       + "Skills: " + monsterSkills + "<br />" 
@@ -228,8 +232,17 @@ async function makeMonster(index){
         for (var key1 in data.monsters[index]["special_abilities"][key]) {
           if (key1 == "name" || key1 == "desc"){
             let dataP5 = document.createElement("div");
-            dataP5.innerHTML = data.monsters[index]["special_abilities"][key][key1] + "<br />"
-            monsterSpcialAblites.appendChild(dataP5);
+            if(data.monsters[index]["special_abilities"][key]["name"] == "Spellcasting" || data.monsters[index]["special_abilities"][key]["name"] == " Innate Spellcasting"){
+              let pulled = data.monsters[index]["special_abilities"][key][key1];
+              var str = pulled;
+              str = str.replace(/(?:\r\n|\r|\n)/g, '<br>');
+              dataP5.innerHTML = str;
+              monsterSpcialAblites.appendChild(dataP5);
+            }
+            else{
+              dataP5.innerHTML = data.monsters[index]["special_abilities"][key][key1] + "<br />"
+              monsterSpcialAblites.appendChild(dataP5);
+            }
           }
         }
       }
@@ -248,10 +261,12 @@ function changeSection(evt, section) {
   navMove = document.getElementsByClassName("navMove");
   for (i = 0; i < navMove.length; i++) {
     navMove[i].style.display = "none";
+    closeNav();
   }
   navMovLink = document.getElementsByClassName("navMovLink");
   for (i = 0; i < navMovLink.length; i++) {
     navMovLink[i].className = navMovLink[i].className.replace(" active", "");
+    closeNav();
   }
   document.getElementById(section).style.display = "block";
   evt.currentTarget.className += " active";
