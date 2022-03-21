@@ -44,8 +44,8 @@
   .navMove{
     display: none;
     position: fixed; /* Stay in place */
-    top: 2em; /* Stay at the top */
-    left: 18em;
+    top: 4em; /* Stay at the top */
+    left: 4em;
 
   }
   #mainPage{
