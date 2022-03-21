@@ -6,17 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <link rel="stylesheet" href="styles/main.css">
-    <title>DMToolTip</title>
+    <title>Cetrati's Guide to everything DND</title>
 </head>
 <body>
     <div id = "mySideNav" class = "sideNav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="#" class = "navMovLink" onclick="changeSection(event, 'monsterList')">Monster List</a>
         <a href="#" class = "navMovLink" onclick="changeSection(event, 'createMonster')">Monster create/Tracker</a>
+        <a href="#" class = "navMovLink" onclick="changeSection(event, 'monsterTemplate')">Monster test template</a>
     </div>
-
-
-    
 
     <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
     <div id="main">
@@ -35,7 +33,7 @@
             <tbody></tbody>
         </table>
     </Article>
-    <article id = "createMonster" class = "navMove">
+    <Article id = "createMonster" class = "navMove">
         <input type="text"  id = "monsterSearch"  placeholder="Search.." oninput="findIndexMonster()">
         <div id = "monsterInfo">
             <p id = "monsterImg"> place Holder for Image</p>
@@ -55,8 +53,27 @@
 
 
         </div>
-        <button type="submit" id = "createMonster"  oninput="">Make Monster</button>
-    </article>
+        <button type="submit" id = "createMonster"  oninput="createMonsterTabs()">Make Monster</button>
+    </Article>
+    <Article id = "monsterTemplate" class = "navMove">
+        <div id = "template">
+            <div id = "monsterMain">
+                <div id = "monsterStart"> Name</div>
+                <div id = "ac">hp</div>
+                <div id = "hp">hp</div>
+                <div id = "sp">hp</div>
+                <div id = "monsterStats">
+                    STR DEX CON INT WIS CHA
+                </div>
+                <div id = "monsterInfoTemplate">Senses</div>
+                <div id = "monsterSpecialAbilites">hp</div>
+                <div id = "monsterActions">Actions</div>
+                <div id = "actionInfo"></div>
+                <div id = "monsterLairActions">LairActions</div>
+                <div id = "monsterSpellCasting">Spellcasting</div>
+            </div>
+        </div>
+    </Article>
     <script src="js/monster.js"></script>
 </body>
 </html>
