@@ -249,7 +249,7 @@ async function makeMonster(index){
 }
 // open nav menu
 function openNav() {
-  document.getElementById("mySideNav").style.width = "250px";
+  document.getElementById("mySideNav").style.width = "280px";
 }
 // close nav menu
 function closeNav() {
@@ -270,4 +270,11 @@ function changeSection(evt, section) {
   }
   document.getElementById(section).style.display = "block";
   evt.currentTarget.className += " active";
+}
+async function createMonsterTabs(number, index){
+  for (let i = number; i > 0; i--){
+    var newTab = createElement('button');
+
+    newTab;
+  }
 }
