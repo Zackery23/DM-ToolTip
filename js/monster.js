@@ -39,7 +39,7 @@ function runSearch(){
     loadMonsterTable("data/monsters.json", document.querySelector("table"), searchValue.value)
 }
 
-async function findIndexMonster(){
+async function findIndexMonster1(){
   const response = await fetch("data/monsters.json");
   const data = await response.json();
   const makeMonsterVal = document.getElementById("monsterSearch");
@@ -61,6 +61,35 @@ async function findIndexMonster(){
   while (i <= len){
     if(data.monsters[i]["name"] == searchValueUp){
       makeMonster(i);
+    }
+    i++
+  }
+
+  
+  
+}
+async function findIndexMonster2(){
+  const response = await fetch("data/monsters.json");
+  const data = await response.json();
+  const makeMonsterVal = document.getElementById("monsterSearch");
+  
+  
+  // gets search value from user
+  let mon = makeMonsterVal.value;
+  
+
+  //console.log(data.monsters[makeMonsterVal]);
+  let sliceUp = mon.slice(1);
+  //console.log(sliceUp);
+  let searchValueUp = mon.charAt(0).toUpperCase() + sliceUp;
+
+  //var index = data.monsters.indexOf(searchValueUp);
+  let i = 0;
+  let len = data.monsters.length;
+  console.log(len);
+  while (i <= len){
+    if(data.monsters[i]["name"] == searchValueUp){
+      monster(i);
     }
     i++
   }
@@ -271,10 +300,24 @@ function changeSection(evt, section) {
   document.getElementById(section).style.display = "block";
   evt.currentTarget.className += " active";
 }
-async function createMonsterTabs(number, index){
-  for (let i = number; i > 0; i--){
-    var newTab = createElement('button');
+async function monster(index){
+  const response = await fetch("data/monsters.json");
+  const data = await response.json();
 
-    newTab;
-  }
+  let monsterStart = document.getElementById("monsterStart");
+  let ac = document.getElementById("ac");
+  let hp = document.getElementById("hp");s
+  let sp = document.getElementById("sp");
+  let monsterStats = document.getElementById("monsterStats");
+  let monsterInfoTemplate = document.getElementById("monsterInfoTemplate");
+  let monsterSpecialAbilites = document.getElementById("monsterSpecialAbilites");
+  let actionInfo = document.getElementById("actionInfo");
+  let monsterLairActionsInfo = document.getElementById("monsterLairActionsInfo");
+  let monsterSpellCastingInfo = document.getElementById("monsterSpellCastingInfo");
+
+  // creates the amount of tabs for the monsters.
+  //createMonsterTabs(number);
+  monsterStart.innerHTML = data.monsters[index]["name"];
+
+
 }
