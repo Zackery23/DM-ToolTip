@@ -34,7 +34,7 @@
         </table>
     </Article>
     <Article id = "createMonster" class = "navMove">
-        <input type="text"  id = "monsterSearch"  placeholder="Search.." oninput="findIndexMonster()">
+        <input type="text"  id = "monsterSearch"  placeholder="Search.." oninput="findIndexMonster1()">
         <div id = "monsterInfo">
             <p id = "monsterImg"> place Holder for Image</p>
             <div id = "monsterName">
@@ -53,24 +53,24 @@
 
 
         </div>
-        <button type="submit" id = "createMonster"  oninput="createMonsterTabs()">Make Monster</button>
+        <button type="submit" id = "createMonster"  oninput="findIndexMonster2()">Make Monster</button>
     </Article>
     <Article id = "monsterTemplate" class = "navMove">
         <div id = "template">
             <div id = "monsterMain">
-                <div id = "monsterStart"> Name</div>
-                <div id = "ac">hp</div>
-                <div id = "hp">hp</div>
-                <div id = "sp">hp</div>
-                <div id = "monsterStats">
-                    STR DEX CON INT WIS CHA
-                </div>
+                <div id = "monsterStart"></div>
+                <div id = "ac"></div>
+                <div id = "hp"></div>
+                <div id = "sp"></div>
+                <div id = "monsterStats"></div>
                 <div id = "monsterInfoTemplate">Senses</div>
-                <div id = "monsterSpecialAbilites">hp</div>
+                <div id = "monsterSpecialAbilites"></div>
                 <div id = "monsterActions">Actions</div>
                 <div id = "actionInfo"></div>
                 <div id = "monsterLairActions">LairActions</div>
+                <div id = "monsterLairActionsInfo"></div>
                 <div id = "monsterSpellCasting">Spellcasting</div>
+                <div id = "monsterSpellCastingInfo"></div>
             </div>
         </div>
     </Article>
