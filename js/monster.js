@@ -61,6 +61,7 @@ async function findIndexMonster1(){
   while (i <= len){
     if(data.monsters[i]["name"] == searchValueUp){
       makeMonster(i);
+      return;
     }
     i++
   }
@@ -90,6 +91,7 @@ async function findIndexMonster2(){
   while (i <= len){
     if(data.monsters[i]["name"] == searchValueUp){
       monster(i);
+      return;
     }
     i++
   }
@@ -101,17 +103,10 @@ async function findIndexMonster2(){
 
 // Grabing info on a specific monster 
 async function makeMonster(index){
-  console.log(index);
-  // get the JSon data fro each monster loaded to be displayed when searched for creation
   const response = await fetch("data/monsters.json");
   const data = await response.json();
   var monsterSkills = "";
   var monsterSavingThrows = "";
-  // grabing the ids for where the data shall be place into
-  let monsterName = document.getElementById("monsterName")
-  let monsterStats_Immunites = document.getElementById("monsterStats_Immunites");
-  let monsterSpcialAblites = document.getElementById("monsterAblites");
-  let actions = document.getElementById("actions");
   //check for skills
   if (data.monsters[index]["acrobatics"] >= 0){
     monsterSkills += "Acrobatics +" + data.monsters[index]["acrobatics"] + " ";
@@ -140,7 +135,7 @@ async function makeMonster(index){
   if (data.monsters[index]["medicine"] >= 0){
     monsterSkills += "Medicine +" + data.monsters[index]["medicine"] + " ";
   }
-  if (data.monsters[index]["nature"] >= 0){
+  if (data.monsters[index]["nature"] >=0){
     monsterSkills += "Nature +" + data.monsters[index]["nature"] + " ";
   }
   if (data.monsters[index]["perception"] >= 0){
@@ -155,7 +150,7 @@ async function makeMonster(index){
   if (data.monsters[index]["religion"] >= 0){
     monsterSkills += "Religion +" + data.monsters[index]["religion"] + " ";
   }
-  if (data.monsters[index]["stealth"] >= 0){
+  if (data.monsters[index]["stealth"] >=0){
     monsterSkills += "Stealth +" + data.monsters[index]["stealth"] + " ";
   }
   if (data.monsters[index]["survival"] >= 0){
@@ -181,81 +176,55 @@ async function makeMonster(index){
   if (data.monsters[index]["charisma_save"] > 0){
     monsterSavingThrows += "CHA: +" + data.monsters[index]["charisma_save"] + " ";
   } 
+  // grabbing divs id so the information can be put into them when make monster button is called.
+  let monsterStart = document.getElementById("monsterStart");
+  let align = document.getElementById("align");
+  let ac = document.getElementById("ac");
+  let hp = document.getElementById("hp");
+  let sp = document.getElementById("sp");
+  let monsterStats = document.getElementById("monsterStats");
+  let savingThrowsInfo = document.getElementById("savingThrowsInfo");
+  let skillsInfo = document.getElementById("skillsInfo");
+  let dmgVulInfo = document.getElementById("dmgVulInfo");
+  let dmgResInfo = document.getElementById("dmgResInfo");
+  let dmgImmInfo = document.getElementById("dmgImmInfo");
+  let conImmInfo = document.getElementById("conImmInfo");
+  let sensesInfo = document.getElementById("sensesInfo");
+  let langInfo = document.getElementById("langInfo");
+  let challRatingInfo = document.getElementById("challRatingInfo");
+
+  let monsterSpecialAbilites = document.getElementById("monsterSpecialAbilites");
+  let monsterActions = document.getElementById("monsterActions");
+  let actionInfo = document.getElementById("actionInfo");
+  let legendaryActions = document.getElementById("legendaryActions");
+  let legendaryActionsInfo = document.getElementById("legendaryActionsInfo");
   
 
-  //adding monsters name, size ,type and alignment  to the div of what was searched
-  monsterName.innerHTML = data.monsters[index]["name"] + "<br />" 
-      + " Size: " + data.monsters[index]["size"] + " Type: " + data.monsters[index]["type"] 
-      + " Alignment: " + data.monsters[index]["alignment"];
-  //console.log(monsterName);
- /* for (const key1 in data.monsters[10]) {
-      console.log(data.monsters[10][key1])
-  }
-  */
-  monsterStats_Immunites.innerHTML = "Armor Class: " + data.monsters[index]["armor_class"] + "<br />" 
-      + " Health: " + data.monsters[index]["hit_points"]  
-      + " (" + data.monsters[index]["hit_dice"] + ") " + "<br />" 
-      + " Speed: " + data.monsters[index]["speed"] + "<br />" 
-      + " STR DEX CON INT WIS CHA" + "<br />" + "<br />" 
-      + data.monsters[index]["strength"] + " "
-      + data.monsters[index]["dexterity"] + " "
-      + data.monsters[index]["constitution"] + " "
-      + data.monsters[index]["intelligence"] + " "
-      + data.monsters[index]["wisdom"] + " "
-      + data.monsters[index]["charisma"] + " " + "<br />"
-      + " Saving Throws: " +  monsterSavingThrows + "<br />" 
-      // checking to see if the creature has that skill
-      //console.log(monsterSkills);
-      + "Skills: " + monsterSkills + "<br />" 
-      + "Damage Vulnerabilities: " + data.monsters[index]["damage_vulnerabilities"] + "<br />" 
-      + "Damage Resistances: " + data.monsters[index]["damage_resistances"] + "<br />" 
-      + "Damage Immunities: " + data.monsters[index]["damage_immunities"] + "<br />" 
-      + "Condtion_immunities: " + data.monsters[index]["condition_immunities"] + "<br />"
-      + "Senses: " + data.monsters[index]["senses"] + "<br />"
-      + "Languages: " + data.monsters[index]["languages"] + "<br />"
-      + "Challenge Rating: " + data.monsters[index]["challenge_rating"];
-  
-      //loop trhough all actions and if the creature has lair actions
-      actions.innerHTML = "";
-      for (var key in data.monsters[index]["actions"]){
-        for (var key1 in data.monsters[index]["actions"][key]){
-          let dataP3 = document.createElement("div");
-          let pulled = data.monsters[index]["actions"][key][key1];
-          // check if the keys are the information that we want from the api          
-          if (key1 == "name" || key1 == "desc"){
-            // check for if the key1 is a lair action 
-            if(data.monsters[index]["actions"][key]["name"] == "Lair Actions"){
+  monsterStart.innerHTML = data.monsters[index]["name"];
+  align.innerHTML = data.monsters[index]["size"] +" "+ data.monsters[index]["type"] + " " + data.monsters[index]["alignment"]  
+  ac.innerHTML = "Armor Class " + data.monsters[index]["armor_class"];
+  hp.innerHTML = "Hit Points " + data.monsters[index]["hit_points"] + " (" + data.monsters[index]["hit_dice"] + ") ";
+  sp.innerHTML = "Speed " + data.monsters[index]["speed"]
 
-              console.log(data.monsters[index]["actions"][key][key1]);
-              // we need to alter \n to <br />
-              var str = pulled;
-              str = str.replace(/(?:\r\n|\r|\n)/g, '<br>');
-
-              console.log(str);
-
-              dataP3.innerHTML = str;
-              actions.appendChild(dataP3);
-            }
-            else{
-              dataP3.innerHTML = pulled;
-              actions.appendChild(dataP3);
-            }
-          }
-        
-        }
-
-      }
-      // implements through if the the creatue has legendary actions
-      for (var key in data.monsters[index]["legendary_actions"]){
-        for (var key1 in data.monsters[index]["legendary_actions"][key]) {
-          if (key1 == "name" || key1 == "desc"){
-            let dataP4 = document.createElement("div");
-            dataP4.innerHTML = data.monsters[index]["legendary_actions"][key][key1] + "<br />"
-            actions.appendChild(dataP4);
-          }
-        }
-      }
-      monsterSpcialAblites.innerHTML = "";
+  monsterStats.innerHTML = 
+  " STR DEX CON INT WIS CHA" + "<br />" 
+  + data.monsters[index]["strength"] + " "
+  + data.monsters[index]["dexterity"] + " "
+  + data.monsters[index]["constitution"] + " "
+  + data.monsters[index]["intelligence"] + " "
+  + data.monsters[index]["wisdom"] + " "
+  + data.monsters[index]["charisma"] + " " + "<br />";
+  savingThrowsInfo.innerHTML =  "Saving Throws: " + monsterSavingThrows;
+  skillsInfo.innerHTML =  "Skills: " + monsterSkills;
+  dmgVulInfo.innerHTML = "Damage Vulnerabilities: " + data.monsters[index]["damage_vulnerabilities"];
+  dmgResInfo.innerHTML = "Damage Resistances: " + data.monsters[index]["damage_resistances"];
+  dmgImmInfo.innerHTML = "Damage Immunities: " + data.monsters[index]["damage_immunities"];
+  conImmInfo.innerHTML = "Condtion Immunities: " + data.monsters[index]["condition_immunities"];
+  sensesInfo.innerHTML = "Senses: " + data.monsters[index]["senses"];
+  langInfo.innerHTML = "Langauges: " + data.monsters[index]["languages"];
+  challRatingInfo.innerHTML = "Challenge Rating: " + data.monsters[index]["challenge_rating"];
+  //Grabbing Monster Special Abilites
+  monsterSpecialAbilites.innerHTML = "";
       // for monster Spcieal Abilites
       for (var key in data.monsters[index]["special_abilities"]){
         for (var key1 in data.monsters[index]["special_abilities"][key]) {
@@ -266,12 +235,218 @@ async function makeMonster(index){
               var str = pulled;
               str = str.replace(/(?:\r\n|\r|\n)/g, '<br>');
               dataP5.innerHTML = str;
-              monsterSpcialAblites.appendChild(dataP5);
+              monsterSpecialAbilites.appendChild(dataP5);
             }
             else{
               dataP5.innerHTML = data.monsters[index]["special_abilities"][key][key1] + "<br />"
-              monsterSpcialAblites.appendChild(dataP5);
+              monsterSpecialAbilites.appendChild(dataP5);
             }
+          }
+        }
+      }
+  actionInfo.innerHTML = "";
+  monsterActions.innerHTML = "";
+      for (var key in data.monsters[index]["actions"]){
+        for (var key1 in data.monsters[index]["actions"][key]){
+          let dataP3 = document.createElement("div");
+          let pulled = data.monsters[index]["actions"][key][key1];
+          // check if the keys are the information that we want from the api          
+          if (key1 == "name" || key1 == "desc"){
+            // check for if the key1 is a lair action 
+            
+            monsterActions.innerHTML = "Actions";
+
+            dataP3.innerHTML = pulled;
+            actionInfo.appendChild(dataP3);
+      
+          }
+        
+        }
+      }
+      // implements through if the the creatue has legendary actions
+      legendaryActions.innerHTML = "";
+      legendaryActionsInfo.innerHTML = "";
+      for (var key in data.monsters[index]["legendary_actions"]){
+        for (var key1 in data.monsters[index]["legendary_actions"][key]) {
+          if (key1 == "name" || key1 == "desc"){
+            legendaryActions.innerHTML = "Legendary Actions";
+
+            let dataP4 = document.createElement("div");
+            dataP4.innerHTML = data.monsters[index]["legendary_actions"][key][key1] + "<br />"
+            legendaryActionsInfo.appendChild(dataP4);
+          }
+        }
+      }
+}
+async function monster(index){
+  const response = await fetch("data/monsters.json");
+  const data = await response.json();
+  var monsterSkills = "";
+  var monsterSavingThrows = "";
+  //check for skills
+  if (data.monsters[index]["acrobatics"] >= 0){
+    monsterSkills += "Acrobatics +" + data.monsters[index]["acrobatics"] + " ";
+  }
+  if (data.monsters[index]["arcana"] >= 0){
+    monsterSkills += "Arcana +" + data.monsters[index]["arcana"] + " ";
+  }
+  if (data.monsters[index]["athletics"] >= 0){
+    monsterSkills += "Athletics +" + data.monsters[index]["athletics"] + " ";
+  }
+  if (data.monsters[index]["deception"] >= 0){
+    monsterSkills += "Deception +" + data.monsters[index]["deception"] + " ";
+  }
+  if (data.monsters[index]["history"] >= 0){
+    monsterSkills += "History +" + data.monsters[index]["history"] + " ";
+  }
+  if (data.monsters[index]["insight"] >= 0){
+    monsterSkills += "Insight +" + data.monsters[index]["insight"] + " ";
+  }
+  if (data.monsters[index]["intimidation"] >= 0){
+    monsterSkills += "Intimidation +" + data.monsters[index]["intimidation"] + " ";
+  }
+  if (data.monsters[index]["investigation"] >= 0){
+    monsterSkills += "Investigation +" + data.monsters[index]["investigation"] + " ";
+  }
+  if (data.monsters[index]["medicine"] >= 0){
+    monsterSkills += "Medicine +" + data.monsters[index]["medicine"] + " ";
+  }
+  if (data.monsters[index]["nature"] >=0){
+    monsterSkills += "Nature +" + data.monsters[index]["nature"] + " ";
+  }
+  if (data.monsters[index]["perception"] >= 0){
+    monsterSkills += "Perception +" + data.monsters[index]["perception"] + " ";
+  }
+  if (data.monsters[index]["performance"] >= 0){
+    monsterSkills += "Performance +" + data.monsters[index]["performance"] + " ";
+  }
+  if (data.monsters[index]["persuasion"] >= 0){
+    monsterSkills += "Persuasion +" + data.monsters[index]["persuasion"] + " ";
+  }
+  if (data.monsters[index]["religion"] >= 0){
+    monsterSkills += "Religion +" + data.monsters[index]["religion"] + " ";
+  }
+  if (data.monsters[index]["stealth"] >=0){
+    monsterSkills += "Stealth +" + data.monsters[index]["stealth"] + " ";
+  }
+  if (data.monsters[index]["survival"] >= 0){
+    monsterSkills += "Survival +" + data.monsters[index]["survival"] + " ";
+  }
+
+  //check for Saving throw modiferies
+  if (data.monsters[index]["strength_save"] > 0){
+    monsterSavingThrows += "STR: +" + data.monsters[index]["strength_save"] + " ";
+  }
+  if (data.monsters[index]["dexterity_save"] > 0){
+    monsterSavingThrows += "DEX: +" + data.monsters[index]["dexterity_save"] + " ";
+  }
+  if (data.monsters[index]["constitution_save"] > 0){
+    monsterSavingThrows += "CON: +" + data.monsters[index]["constitution_save"] + " ";
+  }
+  if (data.monsters[index]["intelligence_save"] > 0){
+    monsterSavingThrows += "INT: +" + data.monsters[index]["intelligence_save"] + " ";
+  }
+  if (data.monsters[index]["wisdom_save"] > 0){
+    monsterSavingThrows += "WIS: +" + data.monsters[index]["wisdom_save"] + " ";
+  }
+  if (data.monsters[index]["charisma_save"] > 0){
+    monsterSavingThrows += "CHA: +" + data.monsters[index]["charisma_save"] + " ";
+  } 
+  // grabbing divs id so the information can be put into them when make monster button is called.
+  let monsterStart = document.getElementById("monsterStart");
+  let align = document.getElementById("align");
+  let ac = document.getElementById("ac");
+  let hp = document.getElementById("hp");
+  let sp = document.getElementById("sp");
+  let monsterStats = document.getElementById("monsterStats");
+  let savingThrowsInfo = document.getElementById("savingThrowsInfo");
+  let skillsInfo = document.getElementById("skillsInfo");
+  let dmgVulInfo = document.getElementById("dmgVulInfo");
+  let dmgResInfo = document.getElementById("dmgResInfo");
+  let dmgImmInfo = document.getElementById("dmgImmInfo");
+  let conImmInfo = document.getElementById("conImmInfo");
+  let sensesInfo = document.getElementById("sensesInfo");
+  let langInfo = document.getElementById("langInfo");
+  let challRatingInfo = document.getElementById("challRatingInfo");
+
+  let monsterSpecialAbilites = document.getElementById("monsterSpecialAbilites");
+  let actionInfo = document.getElementById("actionInfo");
+  let legendaryActions = document.getElementById("legendaryActions");
+  let legendaryActionsInfo = document.getElementById("legendaryActionsInfo");
+  
+
+  monsterStart.innerHTML = data.monsters[index]["name"];
+  align.innerHTML = data.monsters[index]["size"] +" "+ data.monsters[index]["type"] + " " + data.monsters[index]["alignment"]  
+  ac.innerHTML = "Armor Class " + data.monsters[index]["armor_class"];
+  hp.innerHTML = "Hit Points " + data.monsters[index]["hit_points"] + " (" + data.monsters[index]["hit_dice"] + ") ";
+  sp.innerHTML = "Speed " + data.monsters[index]["speed"]
+
+  monsterStats.innerHTML = 
+  " STR DEX CON INT WIS CHA" + "<br />" 
+  + data.monsters[index]["strength"] + " "
+  + data.monsters[index]["dexterity"] + " "
+  + data.monsters[index]["constitution"] + " "
+  + data.monsters[index]["intelligence"] + " "
+  + data.monsters[index]["wisdom"] + " "
+  + data.monsters[index]["charisma"] + " " + "<br />";
+  savingThrowsInfo.innerHTML =  "Saving Throws: " + monsterSavingThrows;
+  skillsInfo.innerHTML =  "Skills: " + monsterSkills;
+  dmgVulInfo.innerHTML = "Damage Vulnerabilities: " + data.monsters[index]["damage_vulnerabilities"];
+  dmgResInfo.innerHTML = "Damage Resistances: " + data.monsters[index]["damage_resistances"];
+  dmgImmInfo.innerHTML = "Damage Immunities: " + data.monsters[index]["damage_immunities"];
+  conImmInfo.innerHTML = "Condtion Immunities: " + data.monsters[index]["condition_immunities"];
+  sensesInfo.innerHTML = "Senses: " + data.monsters[index]["senses"];
+  langInfo.innerHTML = "Langauges: " + data.monsters[index]["languages"];
+  challRatingInfo.innerHTML = "Challenge Rating: " + data.monsters[index]["challenge_rating"];
+  //Grabbing Monster Special Abilites
+  monsterSpecialAbilites.innerHTML = "";
+      // for monster Spcieal Abilites
+      for (var key in data.monsters[index]["special_abilities"]){
+        for (var key1 in data.monsters[index]["special_abilities"][key]) {
+          if (key1 == "name" || key1 == "desc"){
+            let dataP5 = document.createElement("div");
+            if(data.monsters[index]["special_abilities"][key]["name"] == "Spellcasting" || data.monsters[index]["special_abilities"][key]["name"] == " Innate Spellcasting"){
+              let pulled = data.monsters[index]["special_abilities"][key][key1];
+              var str = pulled;
+              str = str.replace(/(?:\r\n|\r|\n)/g, '<br>');
+              dataP5.innerHTML = str;
+              monsterSpecialAbilites.appendChild(dataP5);
+            }
+            else{
+              dataP5.innerHTML = data.monsters[index]["special_abilities"][key][key1] + "<br />"
+              monsterSpecialAbilites.appendChild(dataP5);
+            }
+          }
+        }
+      }
+  actionInfo.innerHTML = "";
+  monsterActions.innerHTML = "";
+      for (var key in data.monsters[index]["actions"]){
+        for (var key1 in data.monsters[index]["actions"][key]){
+          let dataP3 = document.createElement("div");
+          let pulled = data.monsters[index]["actions"][key][key1];
+          // check if the keys are the information that we want from the api          
+          if (key1 == "name" || key1 == "desc"){
+            // check for if the key1 is a lair action 
+            
+            monsterActions.innerHTML = "Actions";
+
+            dataP3.innerHTML = pulled;
+            actionInfo.appendChild(dataP3);
+      
+          }
+        
+        }
+      }
+      // implements through if the the creatue has legendary actions
+      for (var key in data.monsters[index]["legendary_actions"]){
+        for (var key1 in data.monsters[index]["legendary_actions"][key]) {
+          if (key1 == "name" || key1 == "desc"){
+            legendaryActions.innerHTML = "Legendary Actions";
+
+            let dataP4 = document.createElement("div");
+            dataP4.innerHTML = data.monsters[index]["legendary_actions"][key][key1] + "<br />"
+            legendaryActionsInfo.appendChild(dataP4);
           }
         }
       }
@@ -297,27 +472,6 @@ function changeSection(evt, section) {
     navMovLink[i].className = navMovLink[i].className.replace(" active", "");
     closeNav();
   }
-  document.getElementById(section).style.display = "block";
+  document.getElementById(section).style.display = "inline";
   evt.currentTarget.className += " active";
-}
-async function monster(index){
-  const response = await fetch("data/monsters.json");
-  const data = await response.json();
-
-  let monsterStart = document.getElementById("monsterStart");
-  let ac = document.getElementById("ac");
-  let hp = document.getElementById("hp");s
-  let sp = document.getElementById("sp");
-  let monsterStats = document.getElementById("monsterStats");
-  let monsterInfoTemplate = document.getElementById("monsterInfoTemplate");
-  let monsterSpecialAbilites = document.getElementById("monsterSpecialAbilites");
-  let actionInfo = document.getElementById("actionInfo");
-  let monsterLairActionsInfo = document.getElementById("monsterLairActionsInfo");
-  let monsterSpellCastingInfo = document.getElementById("monsterSpellCastingInfo");
-
-  // creates the amount of tabs for the monsters.
-  //createMonsterTabs(number);
-  monsterStart.innerHTML = data.monsters[index]["name"];
-
-
 }
