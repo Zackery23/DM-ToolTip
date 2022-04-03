@@ -1,4 +1,5 @@
 /* The side navigation menu */
+
 .sideNav {
     height: 100%; /* 100% Full-height */
     width: 0; /* 0 width - change this with JavaScript */
@@ -26,7 +27,7 @@
   .sideNav a:hover {
     color: #f1f1f1;
   }
-  
+
   /* Position and style the close button (top right corner) */
   .sideNav .closebtn {
     position: absolute;
@@ -57,27 +58,30 @@
   /* Monster Template styling */
   #template{
     position: fixed;
-    top: 2em;
-    left: 10em;
-
+    top: 4em;
+    left: 4em;
     background-color: rgba(253, 233, 144, 0.801);
-    border-top-style: solid;
-    border-top-width: 10px;
-    border-top-color:rgb(202, 108, 19);
 
-    
-
-    border-bottom-style: solid;
-    border-bottom-width: 15px;
-    border-bottom-color:rgba(202, 108, 19);
-    width: 40em;
-    height: 40em;
+    width:60%;
+    height:fit-content;
     
 
   }
   #monsterMain{
-    width: 40em;
-    height: 40em;
+    width:fit-content;
+    height:fit-content;
+    
+  }
+  #monsterActions{
+    float:right;
+  }
+  #monsterActions > div{
+    float: right;
+  }
+  
+  #monsterSpecialAbilites > div{
+    width:90%;
+    height:50%;
     
   }
   
@@ -86,36 +90,28 @@
     font-weight: bold;
     color: rgb(206, 4, 4);
 
-    border-bottom-style:solid;
-    border-bottom-color: darkred;
-  }
-  #sp{
-    border-bottom-style:solid;
-    border-bottom-color: darkred;
+    
   }
   #monsterActions{
     font-size:large;
     font-weight: bold;
     color: rgb(206, 4, 4);
 
-    border-bottom-style:solid;
-    border-bottom-color:  darkred
+    
   }
   #monsterLairActions{
     font-size:large;
     font-weight: bold;
     color: rgb(206, 4, 4);
 
-    border-bottom-style:solid;
-    border-bottom-color:  darkred
+    
   }
-  #monsterSpellCasting{
+  #legendaryActions{
     font-size:large;
     font-weight: bold;
     color: rgb(206, 4, 4);
 
-    border-bottom-style:solid;
-    border-bottom-color:  darkred
+   
   }
   
   /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
