@@ -35,42 +35,69 @@
     </Article>
     <Article id = "createMonster" class = "navMove">
         <input type="text"  id = "monsterSearch"  placeholder="Search.." oninput="findIndexMonster1()">
-        <div id = "monsterInfo">
-            <p id = "monsterImg"> place Holder for Image</p>
-            <div id = "monsterName">
-
-            </div>
-            <div id = 'monsterStats_Immunites'>
+        <div id = "template">
+            <div id = "monsterMain">
+                <div id = "monsterStart"></div>
+                <div id = "align"></div>
+                <div id = "ac"></div>
+                <div id = "hp"></div>
+                <div id = "sp"></div>
+                <div id = "monsterStats"></div>
                 
+                <div id ="savingThrows"></div>
+                <div id ="savingThrowsInfo"></div>
+                <div id ="skills"> </div>
+                <div id ="skillsInfo"></div>
+                <div id ="dmgVul"></div>
+                <div id ="dmgVulInfo"></div>
+                <div id ="dmgVul"></div>
+                <div id ="dmgResInfo"></div>
+                <div id ="dmgImm"></div>
+                <div id ="dmgImmInfo"></div>
+                <div id ="conImm"></div>
+                <div id ="conImmInfo"></div>
+                <div id ="sensesInfo"></div>
+                <div id ="langInfo"></div>
+                <div id ="challRatingInfo"></div>
+                <div id = "monsterSpecialAbilites"></div>
+                <div id = "monsterActions"></div>
+                <div id = "actionInfo"></div>
+                <div id = "legendaryActions"></div>
+                <div id = "legendaryActionsInfo"></div>
             </div>
-
-            <div id = "actions">
-            </div>
-            
-            <div id = "monsterAblites">
-                
-            </div>
-
-
         </div>
-        <button type="submit" id = "createMonster"  oninput="findIndexMonster2()">Make Monster</button>
+        <button type="submit" id = "createMonster"  onclick="findIndexMonster2()">Make Monster</button>
     </Article>
     <Article id = "monsterTemplate" class = "navMove">
         <div id = "template">
             <div id = "monsterMain">
                 <div id = "monsterStart"></div>
+                <div id = "align"></div>
                 <div id = "ac"></div>
                 <div id = "hp"></div>
                 <div id = "sp"></div>
                 <div id = "monsterStats"></div>
-                <div id = "monsterInfoTemplate">Senses</div>
+                <div id ="savingThrows"></div>
+                <div id ="savingThrowsInfo"></div>
+                <div id ="skills"> </div>
+                <div id ="skillsInfo"></div>
+                <div id ="dmgVul"></div>
+                <div id ="dmgVulInfo"></div>
+                <div id ="dmgVul"></div>
+                <div id ="dmgResInfo"></div>
+                <div id ="dmgImm"></div>
+                <div id ="dmgImmInfo"></div>
+                <div id ="conImm"></div>
+                <div id ="conImmInfo"></div>
+                <div id ="sensesInfo"></div>
+                <div id ="langInfo"></div>
+                <div id ="challRatingInfo"></div>
                 <div id = "monsterSpecialAbilites"></div>
-                <div id = "monsterActions">Actions</div>
-                <div id = "actionInfo"></div>
-                <div id = "monsterLairActions">LairActions</div>
-                <div id = "monsterLairActionsInfo"></div>
-                <div id = "monsterSpellCasting">Spellcasting</div>
-                <div id = "monsterSpellCastingInfo"></div>
+                <div id = "monsterActions">
+                    <div id = "actionInfo"></div>
+                </div>
+                <div id = "legendaryActions"></div>
+                <div id = "legendaryActionsInfo"></div>
             </div>
         </div>
     </Article>
