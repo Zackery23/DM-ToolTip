@@ -35,6 +35,7 @@
     </Article>
     <Article id = "createMonster" class = "navMove">
         <input type="text"  id = "monsterSearch"  placeholder="Search.." oninput="findIndexMonster1()">
+        <button type="submit" id = "createMonster"  onclick="findIndexMonster2()">Make Monster</button>
         <div id = "template">
             <div id = "monsterMain">
                 <div id = "monsterStart"></div>
@@ -66,17 +67,20 @@
                 <div id = "legendaryActionsInfo"></div>
             </div>
         </div>
-        <button type="submit" id = "createMonster"  onclick="findIndexMonster2()">Make Monster</button>
+        
     </Article>
     <Article id = "monsterTemplate" class = "navMove">
         <div id = "template">
             <div id = "monsterMain">
                 <div id = "monsterStart"></div>
                 <div id = "align"></div>
+
                 <div id = "ac"></div>
                 <div id = "hp"></div>
                 <div id = "sp"></div>
+
                 <div id = "monsterStats"></div>
+
                 <div id ="savingThrows"></div>
                 <div id ="savingThrowsInfo"></div>
                 <div id ="skills"> </div>
@@ -92,10 +96,10 @@
                 <div id ="sensesInfo"></div>
                 <div id ="langInfo"></div>
                 <div id ="challRatingInfo"></div>
+
                 <div id = "monsterSpecialAbilites"></div>
-                <div id = "monsterActions">
-                    <div id = "actionInfo"></div>
-                </div>
+                <div id = "monsterActions"></div>
+                <div id = "actionInfo"></div>
                 <div id = "legendaryActions"></div>
                 <div id = "legendaryActionsInfo"></div>
             </div>
