@@ -3,12 +3,12 @@
 .sideNav {
     height: 100%; /* 100% Full-height */
     width: 0; /* 0 width - change this with JavaScript */
-    position: fixed; /* Stay in place */
+     position: fixed; /*Stay in place */
     z-index: 1; /* Stay on top */
     top: 0; /* Stay at the top */
     left: 0;
     background-color: #111; /* Black*/
-    overflow-x: hidden; /* Disable horizontal scroll */
+    overflow-y: hidden; /* Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
   }
@@ -30,7 +30,7 @@
 
   /* Position and style the close button (top right corner) */
   .sideNav .closebtn {
-    position: absolute;
+     position: absolute; 
     top: 0;
     right: 25px;
     font-size: 36px;
@@ -44,44 +44,45 @@
   }
   .navMove{
     display: none;
-    position: fixed; /* Stay in place */
+     position:absolute; /*Stay in place */
     top: 1em; /* Stay at the top */
     left: 4em;
 
   }
   #mainPage{
-    position: fixed; /* Stay in place */
+     position: fixed; /*Stay in place*/ 
     /*font-size: ;*/
     top: 2em; /* Stay at the top */
     left: 50em;
   }
+  #monsterTemplate{
+    overflow: scroll;
+    
+  }
   /* Monster Template styling */
   #template{
-    position: fixed;
+    
     top: 4em;
     left: 4em;
     background-color: rgba(253, 233, 144, 0.801);
-
-    width:60%;
-    height:fit-content;
+    width: 90%;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;;
+    border-image-source: url(https://www.dndbeyond.com/content/1-0-1920-0/skins/waterdeep/images/mon-summary/stat-bar-book.png);
+    border-image-slice: 30;
+    border-image-width: 10px;
+    box-shadow: 5px 5px  lightgrey;
+    visibility: hidden;
     
-
   }
   #monsterMain{
     width:fit-content;
-    height:fit-content;
+    
     
   }
-  #monsterActions{
-    float:right;
-  }
-  #monsterActions > div{
-    float: right;
-  }
-  
   #monsterSpecialAbilites > div{
-    width:90%;
-    height:50%;
+    width:95%;
+    
     
   }
   
@@ -96,22 +97,43 @@
     font-size:large;
     font-weight: bold;
     color: rgb(206, 4, 4);
-
+    border-bottom: 3px darkred solid;
     
   }
-  #monsterLairActions{
-    font-size:large;
-    font-weight: bold;
-    color: rgb(206, 4, 4);
-
-    
+  #actionInfo > div{
+    width: 95%;
   }
   #legendaryActions{
     font-size:large;
     font-weight: bold;
-    color: rgb(206, 4, 4);
-
+    color: rgb(206, 4, 4); 
+    
    
+  }
+  #align{
+    border-bottom: 10px solid;
+    border-image-source: url(https://media-waterdeep.cursecdn.com/file-attachments/0/579/stat-block-header-bar.svg);
+    border-image-slice: 30;
+    border-width: 5px;
+    
+  }
+  #sp{
+    border-bottom: 10px solid;
+    border-image-source: url(https://media-waterdeep.cursecdn.com/file-attachments/0/579/stat-block-header-bar.svg);
+    border-image-slice: 30;
+    border-width: 5px;
+  }
+  #monsterStats{
+    border-bottom: 10px solid;
+    border-image-source: url(https://media-waterdeep.cursecdn.com/file-attachments/0/579/stat-block-header-bar.svg);
+    border-image-slice: 30;
+    border-width: 5px;
+  }
+  #challRatingInfo{
+    border-bottom: 10px solid;
+    border-image-source: url(https://media-waterdeep.cursecdn.com/file-attachments/0/579/stat-block-header-bar.svg);
+    border-image-slice: 30;
+    border-width: 5px;
   }
   
   /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
