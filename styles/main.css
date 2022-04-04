@@ -103,6 +103,9 @@
   #actionInfo > div{
     width: 95%;
   }
+  /* #actionInfo:nth-child(even) {
+    color: darkred;
+  } */
   #legendaryActions{
     font-size:large;
     font-weight: bold;
@@ -128,6 +131,8 @@
     border-image-source: url(https://media-waterdeep.cursecdn.com/file-attachments/0/579/stat-block-header-bar.svg);
     border-image-slice: 30;
     border-width: 5px;
+    font-size: large;
+    color: rgb(65, 3, 3);
   }
   #challRatingInfo{
     border-bottom: 10px solid;
