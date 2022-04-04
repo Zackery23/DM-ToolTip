@@ -202,21 +202,21 @@ async function makeMonster(index){
   let legendaryActionsInfo = document.getElementById("legendaryActionsInfo");
   
   template.style.visibility = "visible";
-  
+
   monsterStart.innerHTML = data.monsters[index]["name"];
   align.innerHTML = data.monsters[index]["size"] +" "+ data.monsters[index]["type"] + " " + data.monsters[index]["alignment"]  
-  ac.innerHTML = "Armor Class " + data.monsters[index]["armor_class"];
-  hp.innerHTML = "Hit Points " + data.monsters[index]["hit_points"] + " (" + data.monsters[index]["hit_dice"] + ") ";
-  sp.innerHTML = "Speed " + data.monsters[index]["speed"]
+  ac.innerHTML = "Armor Class: " + data.monsters[index]["armor_class"];
+  hp.innerHTML = "Hit Points: " + data.monsters[index]["hit_points"] + " (" + data.monsters[index]["hit_dice"] + ") ";
+  sp.innerHTML = "Speed: " + data.monsters[index]["speed"]
 
   monsterStats.innerHTML = 
-  " STR DEX CON INT WIS CHA" + "<br />" 
-  + data.monsters[index]["strength"] + " "
-  + data.monsters[index]["dexterity"] + " "
-  + data.monsters[index]["constitution"] + " "
-  + data.monsters[index]["intelligence"] + " "
-  + data.monsters[index]["wisdom"] + " "
-  + data.monsters[index]["charisma"] + " " + "<br />";
+  " STR \xa0\xa0 DEX \xa0\xa0 CON \xa0\xa0 INT \xa0\xa0 WIS \xa0\xa0 CHA" + "<br />" 
+  + "\xa0\xa0" + data.monsters[index]["strength"] + "\xa0\xa0\xa0\xa0\xa0  "
+  + "\xa0\xa0\xa0" + data.monsters[index]["dexterity"] + "\xa0\xa0\xa0\xa0\xa0\xa0"
+  + "\xa0\xa0\xa0" + data.monsters[index]["constitution"] + "\xa0\xa0\xa0\xa0\xa0"
+  + "\xa0\xa0" + data.monsters[index]["intelligence"] + "\xa0\xa0\xa0\xa0\xa0"
+  + "\xa0\xa0" + data.monsters[index]["wisdom"] + "\xa0\xa0\xa0\xa0\xa0"
+  + "\xa0\xa0" + data.monsters[index]["charisma"] + "\xa0\xa0\xa0\xa0\xa0" + "<br />";
   savingThrowsInfo.innerHTML =  "Saving Throws: " + monsterSavingThrows;
   skillsInfo.innerHTML =  "Skills: " + monsterSkills;
   dmgVulInfo.innerHTML = "Damage Vulnerabilities: " + data.monsters[index]["damage_vulnerabilities"];
