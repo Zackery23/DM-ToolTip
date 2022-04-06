@@ -35,7 +35,13 @@
     </Article>
     <Article id = "createMonster" class = "navMove">
         <input type="text"  id = "monsterSearch"  placeholder="Search.." oninput="findIndexMonster1()">
-        <button type="submit" id = "createMonster"  onclick="findIndexMonster2()">Make Monster</button>
+        <p>Type in how mnay of this monster you want</p>
+
+        <input type="text" id = "numberMonsters" placeholder="Number of Monsters">
+        <button type="submit" id = "makeMonsterTab"  onclick="makeTab()">Make Monster</button>
+
+        <div id = "tabSection" class="tab"></div>
+
         <div id = "template">
             <div id = "monsterMain">
                 <div id = "monsterStart"></div>
@@ -69,41 +75,8 @@
         </div>
         
     </Article>
-    <Article id = "monsterTemplate" class = "navMove">
-        <div id = "template">
-            <div id = "monsterMain">
-                <div id = "monsterStart"></div>
-                <div id = "align"></div>
-
-                <div id = "ac"></div>
-                <div id = "hp"></div>
-                <div id = "sp"></div>
-
-                <div id = "monsterStats"></div>
-
-                <div id ="savingThrows"></div>
-                <div id ="savingThrowsInfo"></div>
-                <div id ="skills"> </div>
-                <div id ="skillsInfo"></div>
-                <div id ="dmgVul"></div>
-                <div id ="dmgVulInfo"></div>
-                <div id ="dmgVul"></div>
-                <div id ="dmgResInfo"></div>
-                <div id ="dmgImm"></div>
-                <div id ="dmgImmInfo"></div>
-                <div id ="conImm"></div>
-                <div id ="conImmInfo"></div>
-                <div id ="sensesInfo"></div>
-                <div id ="langInfo"></div>
-                <div id ="challRatingInfo"></div>
-
-                <div id = "monsterSpecialAbilites"></div>
-                <div id = "monsterActions"></div>
-                <div id = "actionInfo"></div>
-                <div id = "legendaryActions"></div>
-                <div id = "legendaryActionsInfo"></div>
-            </div>
-        </div>
+    <Article id = "monsterSheets" class = "navMove">
+        
     </Article>
     <script src="js/monster.js"></script>
 </body>
