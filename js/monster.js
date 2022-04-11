@@ -69,76 +69,6 @@ async function findIndexMonster1(){
   
   
 }
-async function findIndexMonster2(){
-  const response = await fetch("data/monsters.json");
-  const data = await response.json();
-  const makeMonsterVal = document.getElementById("monsterSearch");
-  
-  
-  // gets search value from user
-  let mon = makeMonsterVal.value;
-  
-
-  //console.log(data.monsters[makeMonsterVal]);
-  let sliceUp = mon.slice(1);
-  //console.log(sliceUp);
-  let searchValueUp = mon.charAt(0).toUpperCase() + sliceUp;
-
-  //var index = data.monsters.indexOf(searchValueUp);
-  let i = 0;
-  let len = data.monsters.length;
-  console.log(len);
-  while (i <= len){
-    if(data.monsters[i]["name"] == searchValueUp){
-      monster(i);
-      return;
-    }
-    i++
-  } 
-}
-function makeTab(){
-  var search = document.getElementById("numberMonsters");
-  const makeMonsterVal = document.getElementById("monsterSearch");
-
-  let mon = makeMonsterVal.value;
-
-  let sliceUp = mon.slice(1);
-  
-  let searchValueUp = mon.charAt(0).toUpperCase() + sliceUp;
-
-  var num = search.value;
-  console.log(num);
-  var tabBut = document.getElementById("tabSection");
-  var tabcontent = document.getElementById("createMonster");
-  for(let i = 1; i <= num; i++){
-
-    var tab = document.createElement("button");
-
-    tab.id = "tab" + i;
-    tab.innerHTML = searchValueUp + " " +  i;
-    tab.className = "tablinks";
-    tab.addEventListener("click", function(event){
-      openTabs(event, "section" + i);
-    });
-
-    var section = document.createElement("div");
-
-    section.id = "section" + i;
-    section.innerHTML = "Test" + i;
-    section.className = "tabcontent";
-
-    tabcontent.appendChild(section);
-    tabBut.appendChild(tab);
-
-    const node = document.getElementById("template").lastChild;
-    const clone = node.cloneNode(true);
-    const sec1 = document.getElementById("section1");
-    sec1.appendChild(clone);
-    
-  }
-}
-
-
 // Grabing info on a specific monster 
 async function makeMonster(index){
   const response = await fetch("data/monsters.json");
@@ -340,26 +270,7 @@ function changeSection(evt, section) {
     navMovLink[i].className = navMovLink[i].className.replace(" active", "");
     closeNav();
   }
-  document.getElementById(section).style.display = "inline";
+  document.getElementById(section).style.display = "block";
   evt.currentTarget.className += " active";
 }
-function openTabs(evt, tabName) {
-  // Declare all variables
-  var i, tabcontent, tablinks;
 
-  // Get all elements with class="tabcontent" and hide them
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-
-  // Get all elements with class="tablinks" and remove the class "active"
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-
-  // Show the current tab, and add an "active" class to the button that opened the tab
-  document.getElementById(tabName).style.display = "inline";
-  evt.currentTarget.className += " active";
-}
