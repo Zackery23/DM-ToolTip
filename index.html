@@ -13,7 +13,7 @@
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="#" class = "navMovLink" onclick="changeSection(event, 'monsterList')">Monster List</a>
         <a href="#" class = "navMovLink" onclick="changeSection(event, 'createMonster')">Monster create/Tracker</a>
-        <a href="#" class = "navMovLink" onclick="changeSection(event, 'monsterTemplate')">Monster test template</a>
+        <a href="#" class = "navMovLink" onclick="changeSection(event, 'monsterSheets')">Monster test template</a>
     </div>
 
     <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
@@ -35,13 +35,6 @@
     </Article>
     <Article id = "createMonster" class = "navMove">
         <input type="text"  id = "monsterSearch"  placeholder="Search.." oninput="findIndexMonster1()">
-        <p>Type in how mnay of this monster you want</p>
-
-        <input type="text" id = "numberMonsters" placeholder="Number of Monsters">
-        <button type="submit" id = "makeMonsterTab"  onclick="makeTab()">Make Monster</button>
-
-        <div id = "tabSection" class="tab"></div>
-
         <div id = "template">
             <div id = "monsterMain">
                 <div id = "monsterStart"></div>
@@ -76,8 +69,16 @@
         
     </Article>
     <Article id = "monsterSheets" class = "navMove">
-        
+        <input type="text"  id = "monsterSearch2"  placeholder="Search..">
+        <p>Type in how many of this monster you want</p>
+
+        <input type="text" id = "numberMonsters" placeholder="Number of Monsters">
+
+        <button type="submit" id = "makeMonsterTab"  onclick="makeTab()">Make Monster</button>
+
+        <div id = "tabSection" class="tab"></div>
     </Article>
     <script src="js/monster.js"></script>
+    <script src="js/encounterTracker.js"></script>
 </body>
 </html>
