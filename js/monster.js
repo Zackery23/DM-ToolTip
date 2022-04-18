@@ -175,7 +175,7 @@ async function makeMonster(index){
   align.innerHTML = data.monsters[index]["size"] +" "+ data.monsters[index]["type"] + " " + data.monsters[index]["alignment"]  
   ac.innerHTML = "Armor Class: " + data.monsters[index]["armor_class"];
   hp.innerHTML = "Hit Points: " + data.monsters[index]["hit_points"] + " (" + data.monsters[index]["hit_dice"] + ") ";
-  sp.innerHTML = "Speed: " + data.monsters[index]["speed"]
+  sp.innerHTML = "Speed: " + data.monsters[index]["speed"];
 
   monsterStats.innerHTML = 
   " STR \xa0\xa0 DEX \xa0\xa0 CON \xa0\xa0 INT \xa0\xa0 WIS \xa0\xa0 CHA" + "<br />" 
