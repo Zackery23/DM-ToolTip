@@ -36,7 +36,10 @@
     font-size: 36px;
     margin-left: 50px;
   }
-  
+  #addMonsterInput{
+    display: inline;
+    
+  }
   /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
   #main {
     transition: margin-left .5s;
@@ -90,7 +93,7 @@
   .monsterName{
     font-size: x-large;
     font-weight: bold;
-    color: rgb(206, 4, 4);
+    color: DarkRed;
   }
   .alignmentInfo{
     border-bottom: 10px solid;
@@ -171,6 +174,7 @@
   }
   #tabSection{
     border: none;
+    width: fit-content;
   }
   #align{
     border-bottom: 10px solid;
