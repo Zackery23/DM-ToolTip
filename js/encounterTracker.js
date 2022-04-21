@@ -108,34 +108,70 @@ async function makeTab(){
       tabCounter++;
       //section for where the stat card will go.
       var section = document.createElement("div");
+      section.className = "sectionBorder";
       //Main div where stat card shall be
       var monsterMain = document.createElement("div");
-
+      monsterMain.className = "monsterTop";
 
       var monName = document.createElement("div");
+      monName.className = "monsterName";
+
       var alignInfo = document.createElement("div");
+      alignInfo.className = "alignmentInfo";
+
       var acInfo = document.createElement("div");
+      acInfo.className = "acInfo";
+
       var hpInfo = document.createElement("div");
+      hpInfo.className = "hpInfo";
+
       var speed = document.createElement("div");
+      speed.className = "speed";
+
       var monsterStatsInfo = document.createElement("div");
+      monsterStatsInfo.className = "monsterStatsInfo";
 
       var savThrowsInfo = document.createElement("div");
+      savThrowsInfo.className = "savThrowsInfo";
+
       var skillsInfo = document.createElement("div");
+      skillsInfo.className = "skillsInfo";
+
       var dmgVulInfo = document.createElement("div");
+      dmgVulInfo.className = "damgeVulInfo";
+
       var dmgResInfo = document.createElement("div");
+      dmgResInfo.className = "damgeResInfo";
+
       var dmgImmInfo = document.createElement("div");
+      dmgImmInfo.className = "damgeImmInfo";
+
       var conImmInfo = document.createElement("div");
+      conImmInfo.className = "contImmInfo";
+
       var sensesInfo = document.createElement("div");
+      sensesInfo.className = "sensesInfo";
+
       var langInfo = document.createElement("div");
+      langInfo.className = "langInfo";
+
       var challRatingInfo  = document.createElement("div");
+      challRatingInfo.className = "challRatingInfo";
 
       var monsterSpecialAbilites = document.createElement("div");
-      
+      monsterSpecialAbilites.className = "monsterSpecialAbilitesInfo";
+
       var monsterActions = document.createElement("div");
+      monsterActions.className = "monsterActionsInfo";
+
       var actionInfo = document.createElement("div"); 
-      
+      actionInfo.className = "actionsInfo";
+
       var legendaryActions = document.createElement("div");
+      legendaryActions.className = "legendaryActionsInfo";
+
       var legendaryActionsInfo = document.createElement("div");
+      legendaryActionsInfo.className = "legendaryActInfo";
 
 
       monName.innerHTML = data.monsters[index]["name"];
