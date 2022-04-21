@@ -69,12 +69,11 @@
         
     </Article>
     <Article id = "monsterSheets" class = "navMove">
-        <input type="text"  id = "monsterSearch2"  placeholder="Search..">
-        <p>Type in how many of this monster you want to add to the Encounter</p>
-
-        <input type="text" id = "numberMonsters" placeholder="Number of Monsters">
-
-        <button type="submit" id = "makeMonsterTab"  onclick="makeTab()">Add Monster</button>
+        <div id = "addMonsterInput">
+            <input type="text" id = "numberMonsters" placeholder="Number of Monsters">
+            <input type="text"  id = "monsterSearch2"  placeholder="Monster Name..">
+            <button type="submit" id = "makeMonsterTab"  onclick="makeTab()">Add Monster</button>
+        </div>
 
         <div id = "tabSection" class="tab"></div>
     </Article>
