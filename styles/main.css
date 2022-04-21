@@ -75,6 +75,62 @@
     visibility: hidden;
     
   }
+  .monsterTop{
+    top: 4em;
+    left: 4em;
+    background-color: rgba(253, 233, 144, 0.801);
+    width: 90%;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;;
+    border-image-source: url(https://www.dndbeyond.com/content/1-0-1920-0/skins/waterdeep/images/mon-summary/stat-bar-book.png);
+    border-image-slice: 30;
+    border-image-width: 10px;
+    box-shadow: 5px 5px  lightgrey;
+  }
+  .monsterName{
+    font-size: x-large;
+    font-weight: bold;
+    color: rgb(206, 4, 4);
+  }
+  .alignmentInfo{
+    border-bottom: 10px solid;
+    border-image-source: url(https://media-waterdeep.cursecdn.com/file-attachments/0/579/stat-block-header-bar.svg);
+    border-image-slice: 30;
+    border-width: 5px;
+  }
+  .speed{
+    border-bottom: 10px solid;
+    border-image-source: url(https://media-waterdeep.cursecdn.com/file-attachments/0/579/stat-block-header-bar.svg);
+    border-image-slice: 30;
+    border-width: 5px;
+  }
+  .monsterStatsInfo{
+    border-bottom: 10px solid;
+    border-image-source: url(https://media-waterdeep.cursecdn.com/file-attachments/0/579/stat-block-header-bar.svg);
+    border-image-slice: 30;
+    border-width: 5px;
+    font-size: large;
+    color: rgb(65, 3, 3);
+  }
+  .challRatingInfo{
+    border-bottom: 10px solid;
+    border-image-source: url(https://media-waterdeep.cursecdn.com/file-attachments/0/579/stat-block-header-bar.svg);
+    border-image-slice: 30;
+    border-width: 5px;
+  }
+  .monsterActionsInfo{
+    font-size:large;
+    font-weight: bold;
+    color: rgb(206, 4, 4);
+    border-bottom: 3px darkred solid;
+  }
+  .legendaryActionsInfo{
+    font-size:large;
+    font-weight: bold;
+    color: rgb(206, 4, 4); 
+    
+   
+  }
   #monsterMain{
     width:fit-content;
     
@@ -112,6 +168,9 @@
     color: rgb(206, 4, 4); 
     
    
+  }
+  #tabSection{
+    border: none;
   }
   #align{
     border-bottom: 10px solid;
@@ -172,9 +231,6 @@
 /* Style the tab content */
 .tabcontent {
   display: none;
-  padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-top: none;
 }
   
   /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
