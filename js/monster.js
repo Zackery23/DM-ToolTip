@@ -270,7 +270,7 @@ function changeSection(evt, section) {
     navMovLink[i].className = navMovLink[i].className.replace(" active", "");
     closeNav();
   }
-  document.getElementById(section).style.display = "block";
+  document.getElementById(section).style.display = "inline";
   evt.currentTarget.className += " active";
 }
 
