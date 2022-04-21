@@ -204,6 +204,10 @@ async function makeTab(){
           if (key1 == "name" || key1 == "desc"){
             let dataP5 = document.createElement("div");
             if(data.monsters[index]["special_abilities"][key]["name"] == "Spellcasting" || data.monsters[index]["special_abilities"][key]["name"] == " Innate Spellcasting"){
+              if (key1 == "name"){
+                dataP5.style.color = "DarkRed";
+                dataP5.style.fontWeight = "bold";
+              }
               let pulled = data.monsters[index]["special_abilities"][key][key1];
               var str = pulled;
               str = str.replace(/(?:\r\n|\r|\n)/g, '<br>');
@@ -211,6 +215,10 @@ async function makeTab(){
               monsterSpecialAbilites.appendChild(dataP5);
             }
             else{
+              if (key1 == "name"){
+                dataP5.style.color = "DarkRed";
+                dataP5.style.fontWeight = "bold";
+              }
               dataP5.innerHTML = data.monsters[index]["special_abilities"][key][key1] + "<br />"
               monsterSpecialAbilites.appendChild(dataP5);
             }
@@ -224,10 +232,15 @@ async function makeTab(){
         for (var key1 in data.monsters[index]["actions"][key]){
           let dataP3 = document.createElement("div");
           let pulled = data.monsters[index]["actions"][key][key1];
+          
           // check if the keys are the information that we want from the api          
           if (key1 == "name" || key1 == "desc"){
             // check for if the key1 is a lair action 
             if(data.monsters[index]["actions"][key]["name"] != "Lair Actions"){
+              if (key1 == "name"){
+                dataP3.style.color = "DarkRed";
+                dataP3.style.fontWeight = "bold";
+              }
               monsterActions.innerHTML = "Actions";
 
               dataP3.innerHTML = pulled;
@@ -337,6 +350,6 @@ async function makeTab(){
     }
   
     // Show the current tab, and add an "active" class to the button that opened the tab
-    document.getElementById(tabName).style.display = "block";
+    document.getElementById(tabName).style.display = "inline";
     evt.currentTarget.className += " active";
   }
