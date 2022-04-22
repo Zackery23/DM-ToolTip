@@ -124,13 +124,13 @@
   .monsterActionsInfo{
     font-size:large;
     font-weight: bold;
-    color: rgb(206, 4, 4);
+    color: darkred;
     border-bottom: 3px darkred solid;
   }
   .legendaryActionsInfo{
     font-size:large;
     font-weight: bold;
-    color: rgb(206, 4, 4); 
+    color: darkred; 
     
    
   }
@@ -148,14 +148,14 @@
   #monsterStart{
     font-size: x-large;
     font-weight: bold;
-    color: rgb(206, 4, 4);
+    color: darkred;
 
     
   }
   #monsterActions{
     font-size:large;
     font-weight: bold;
-    color: rgb(206, 4, 4);
+    color: darkred;
     border-bottom: 3px darkred solid;
     
   }
@@ -168,7 +168,7 @@
   #legendaryActions{
     font-size:large;
     font-weight: bold;
-    color: rgb(206, 4, 4); 
+    color: darkred; 
     
    
   }
@@ -203,7 +203,19 @@
     border-image-slice: 30;
     border-width: 5px;
   }
+  #clearEncounter{
+    position: absolute;
+    width: fit-content;
+    top: 5px;
+    left: 110em;
 
+  }
+  #roundNumber{
+    position: absolute;
+    width: fit-content;
+    top: 5px;
+    left: 100em;
+  }
   /* Style the tab */
 .tab {
   overflow: hidden;
