@@ -69,13 +69,17 @@
         
     </Article>
     <Article id = "monsterSheets" class = "navMove">
+        <div id = "content"></div>
+        <div id = "roundNumber">Round: 1</div>
         <div id = "addMonsterInput">
             <input type="text" id = "numberMonsters" placeholder="Number of Monsters">
             <input type="text"  id = "monsterSearch2"  placeholder="Monster Name..">
             <button type="submit" id = "makeMonsterTab"  onclick="makeTab()">Add Monster</button>
         </div>
+        <button type= "submit" id = "clearEncounter" onclick="clearEncounter()">Clear Encounter</button>
 
         <div id = "tabSection" class="tab"></div>
+        
     </Article>
     <script src="js/monster.js"></script>
     <script src="js/encounterTracker.js"></script>
