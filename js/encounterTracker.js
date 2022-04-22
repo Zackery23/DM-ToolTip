@@ -88,7 +88,7 @@ async function makeTab(){
     console.log(num);
 
     var tabBut = document.getElementById("tabSection");
-    var tabcontent = document.getElementById("monsterSheets");
+    
 
     for(let i = 1; i <= num; i++){
 
@@ -186,6 +186,10 @@ async function makeTab(){
       + "\xa0\xa0" + data.monsters[index]["intelligence"] + "\xa0\xa0\xa0\xa0\xa0"
       + "\xa0\xa0" + data.monsters[index]["wisdom"] + "\xa0\xa0\xa0\xa0\xa0"
       + "\xa0\xa0" + data.monsters[index]["charisma"] + "\xa0\xa0\xa0\xa0\xa0" + "<br />";
+
+      monsterStatsInfo.style.color = "DarkRed";
+      monsterStatsInfo.style.fontWeight = "bold";
+
       savThrowsInfo.innerHTML =  "Saving Throws: " + monsterSavingThrows;
       skillsInfo.innerHTML =  "Skills: " + monsterSkills;
       dmgVulInfo.innerHTML = "Damage Vulnerabilities: " + data.monsters[index]["damage_vulnerabilities"];
@@ -259,18 +263,23 @@ async function makeTab(){
             legendaryActions.innerHTML = "Legendary Actions";
             legendaryActions.style.borderBottom = "3px darkred solid";
             let dataP4 = document.createElement("div");
+            if (key1 == "name"){
+              dataP4.style.color = "DarkRed";
+              dataP4.style.fontWeight = "bold";
+            }
             dataP4.innerHTML = data.monsters[index]["legendary_actions"][key][key1] + "<br />"
             legendaryActionsInfo.appendChild(dataP4);
           }
         }
       }
-
+      var tabcontent = document.getElementById("monsterSheets");
+      var content = document.getElementById("content");
       section.id = searchValueUp + i;
       section.className = "tabcontent";
       
       
-      tabcontent.appendChild(section);
-
+      tabcontent.appendChild(content);
+      content.appendChild(section);
       section.appendChild(monsterMain);
 
       monsterMain.appendChild(monName);
@@ -332,7 +341,14 @@ async function makeTab(){
       i++
     } 
   }
-
+  function clearEncounter(){
+    // var tabsection = document.getElementById("tabSectiion");
+    // var content = document.getElementById("content");
+    // tabsection.innerHTML = " ";
+    // content.innerHTML = " ";
+    $('div#tabSection').empty();
+    $('div#content').empty();
+  }
   function openTabs(evt, tabName) {
     // Declare all variables
     var i, tabcontent, tablinks;
