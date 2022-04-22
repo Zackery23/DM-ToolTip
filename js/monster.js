@@ -185,6 +185,8 @@ async function makeMonster(index){
   + "\xa0\xa0" + data.monsters[index]["intelligence"] + "\xa0\xa0\xa0\xa0\xa0"
   + "\xa0\xa0" + data.monsters[index]["wisdom"] + "\xa0\xa0\xa0\xa0\xa0"
   + "\xa0\xa0" + data.monsters[index]["charisma"] + "\xa0\xa0\xa0\xa0\xa0" + "<br />";
+  monsterStats.style.color = "DarkRed";
+  monsterStats.style.fontWeight = "bold";
   savingThrowsInfo.innerHTML =  "Saving Throws: " + monsterSavingThrows;
   skillsInfo.innerHTML =  "Skills: " + monsterSkills;
   dmgVulInfo.innerHTML = "Damage Vulnerabilities: " + data.monsters[index]["damage_vulnerabilities"];
@@ -202,6 +204,10 @@ async function makeMonster(index){
           if (key1 == "name" || key1 == "desc"){
             let dataP5 = document.createElement("div");
             if(data.monsters[index]["special_abilities"][key]["name"] == "Spellcasting" || data.monsters[index]["special_abilities"][key]["name"] == " Innate Spellcasting"){
+              if (key1 == "name"){
+                dataP5.style.color = "DarkRed";
+                dataP5.style.fontWeight = "bold";
+              }
               let pulled = data.monsters[index]["special_abilities"][key][key1];
               var str = pulled;
               str = str.replace(/(?:\r\n|\r|\n)/g, '<br>');
@@ -209,6 +215,10 @@ async function makeMonster(index){
               monsterSpecialAbilites.appendChild(dataP5);
             }
             else{
+              if (key1 == "name"){
+                dataP5.style.color = "DarkRed";
+                dataP5.style.fontWeight = "bold";
+              }
               dataP5.innerHTML = data.monsters[index]["special_abilities"][key][key1] + "<br />"
               monsterSpecialAbilites.appendChild(dataP5);
             }
@@ -224,6 +234,10 @@ async function makeMonster(index){
           // check if the keys are the information that we want from the api          
           if (key1 == "name" || key1 == "desc"){
             // check for if the key1 is a lair action 
+            if (key1 == "name"){
+              dataP3.style.color = "DarkRed";
+              dataP3.style.fontWeight = "bold";
+            }
             if(data.monsters[index]["actions"][key]["name"] != "Lair Actions"){
               monsterActions.innerHTML = "Actions";
 
@@ -243,6 +257,10 @@ async function makeMonster(index){
             legendaryActions.innerHTML = "Legendary Actions";
             legendaryActions.style.borderBottom = "3px darkred solid";
             let dataP4 = document.createElement("div");
+            if (key1 == "name"){
+              dataP4.style.color = "DarkRed";
+              dataP4.style.fontWeight = "bold";
+            }
             dataP4.innerHTML = data.monsters[index]["legendary_actions"][key][key1] + "<br />"
             legendaryActionsInfo.appendChild(dataP4);
           }
