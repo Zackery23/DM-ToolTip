@@ -134,6 +134,32 @@
     
    
   }
+  .monsterGuess:hover{
+    cursor: pointer;
+	  background-color: darkblue;
+    color: #FFFFFF;
+  }
+  #trackTable{
+    position: fixed;
+    top:20px;
+    right: 8px;
+    
+  }
+  #trackTable>th{
+    padding: 10px;
+  }
+  #matchList{
+    position: absolute;
+    top: 8px;
+    left: 11.3em;
+    background-color: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 12px;
+    padding: 8px 0;
+    width: 10.95em;
+    visibility: hidden;
+  }
   #monsterMain{
     width:fit-content;
     
