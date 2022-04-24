@@ -326,7 +326,6 @@ async function makeTab(){
       section.id = searchValueUp + i;
       section.className = "tabcontent";
       
-      
       tabcontent.appendChild(content);
       content.appendChild(section);
       section.appendChild(monsterMain);
@@ -359,7 +358,7 @@ async function makeTab(){
 
       monsterMain.appendChild(legendaryActions);
       monsterMain.appendChild(legendaryActionsInfo);
-
+  
       //sectionCounter++;
     }
   }
@@ -393,11 +392,14 @@ async function makeTab(){
   function clearEncounter(){
     $('div#tabSection').empty();
     $('div#content').empty();
+    var trackButton = document.getElementById("addToInitiative");
+    trackButton.style.display = "none";
   }
   function openTabs(evt, tabName) {
     // Declare all variables
     var i, tabcontent, tablinks;
-  
+    var trackButton = document.getElementById("addToInitiative");
+    trackButton.style.display = "inline";
     // Get all elements with class="tabcontent" and hide them
     tabcontent = document.getElementsByClassName("tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
