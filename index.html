@@ -71,9 +71,21 @@
     <Article id = "monsterSheets" class = "navMove">
         <div id = "content"></div>
         <div id = "roundNumber">Round: 1</div>
+        <table id ="trackTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th></th>
+                    <th>Rolled</th>
+                    <th></th>
+                    <th>Dex Mod</th>
+                </tr>
+            </thead>
+        </table>
         <div id = "addMonsterInput">
             <input type="text" id = "numberMonsters" placeholder="Number of Monsters">
-            <input type="text"  id = "monsterSearch2"  placeholder="Monster Name..">
+            <input type="text"  id = "monsterSearch2"   autocomplete="off" placeholder="Monster Name..">
+            <div id = "matchList"></div>
             <button type="submit" id = "makeMonsterTab"  onclick="makeTab()">Add Monster</button>
         </div>
         <button type= "submit" id = "clearEncounter" onclick="clearEncounter()">Clear Encounter</button>
