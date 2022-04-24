@@ -6,12 +6,12 @@ function track(monsterName, dexmod){
     let name = "";
     let dexmod = 0;
     //check for ties
-    for (i = 0; i >= combatArray.length; i++){   
-        if(rolled == combatArray[i].rolled){
+    // for (i = 0; i >= combatArray.length; i++){   
+    //     if(rolled == combatArray[i].rolled){
                 
-        }
-    }
-
+    //     }
+    // }
+    
 
     //check when round is at bottom
     combatArray.push[
