@@ -64,11 +64,11 @@
   }
   /* Monster Template styling */
   #template{
-    
-    top: 4em;
-    left: 4em;
+    position: relative;
+    top: -2em;
+    right: -12em;
     background-color: rgba(253, 233, 144, 0.801);
-    width: 90%;
+    width: 85%;
     border-top: 10px solid transparent;
     border-bottom: 10px solid transparent;;
     border-image-source: url(https://www.dndbeyond.com/content/1-0-1920-0/skins/waterdeep/images/mon-summary/stat-bar-book.png);
@@ -155,6 +155,18 @@
     position: absolute;
     top: 8px;
     left: 11.3em;
+    background-color: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 12px;
+    padding: 8px 0;
+    width: 10.95em;
+    visibility: hidden;
+  }
+  #monsterMatchList{
+    position: absolute;
+    top: 8px;
+    left: 0em;
     background-color: #FFFFFF;
     border: 1px solid rgba(0, 0, 0, 0.2);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
