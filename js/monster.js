@@ -1,6 +1,6 @@
-const search = document.getElementById("monsterSearch");
-const matchList = document.getElementById("monsterMatchList");
-const matched = document.getElementsByClassName("monsterGuess");
+const search2 = document.getElementById("monsterSearch");
+const matchList2 = document.getElementById("monsterMatchList");
+//const matched2 = document.getElementsByClassName("monsterGuess");
 const monsterMain = document.getElementById("monsterMain");
 // Search monster.jsopnm and fillter it
 const searchMonsters2 = async searchMonster => {
@@ -15,36 +15,36 @@ const searchMonsters2 = async searchMonster => {
   });
   if(searchMonster.length === 0) {
     matches = [];
-    matchList.style.visibility =  "hidden";
-    matchList.innerHTML = '';
+    matchList2.style.visibility =  "hidden";
+    matchList2.innerHTML = '';
   }
   //console.log(matches);
-  outputHtml(matches);
+  outputHtml2(matches);
 };
 
 //show results in HTML
-const outputHtml = matches =>{
+const outputHtml2 = matches =>{
   if(matches.length > 0){
     const html = matches.map(
       match => `
-      <div id = "${match.name}"class=" monsterGuess" onclick = "changeSearch(this.id)">${match.name}</div>`
+      <div id = "${match.name}"class=" monsterGuess" onclick = "changeSearch2(this.id)">${match.name}</div>`
     ).join('');
-    matchList.style.visibility =  "visible";
-    matchList.innerHTML = html;
+    matchList2.style.visibility =  "visible";
+    matchList2.innerHTML = html;
   }
 }
 
-search.addEventListener('input', () => searchMonsters2(search.value));
+search2.addEventListener('input', () => searchMonsters2(search2.value));
 
-function changeSearch(id){
+function changeSearch2(id){
   let textToChange = document.getElementById(id);
   //console.log(textToChange.innerHTML);
   let x = textToChange.innerHTML;
   console.log(x);
-  search.value = x;
-  console.log(search.value)
-  matchList.style.visibility =  "hidden";
-  matchList.innerHTML = '';
+  search2.value = x;
+  console.log(search2.value)
+  matchList2.style.visibility =  "hidden";
+  matchList2.innerHTML = '';
   findIndexMonster1();
 }
 
