@@ -1,3 +1,59 @@
+const search = document.getElementById("monsterSearch");
+const matchList = document.getElementById("monsterMatchList");
+const matched = document.getElementsByClassName("monsterGuess");
+const monsterMain = document.getElementById("monsterMain");
+// Search monster.jsopnm and fillter it
+const searchMonsters2 = async searchMonster => {
+  const response = await fetch("data/monsters.json");
+  const data = await response.json();
+
+  //console.log(data);
+  // get matches to current text input
+  let matches = data.monsters.filter(monster =>{
+    const regex = new RegExp(`^${searchMonster}`, 'gi');
+    return monster.name.match(regex);
+  });
+  if(searchMonster.length === 0) {
+    matches = [];
+    matchList.style.visibility =  "hidden";
+    matchList.innerHTML = '';
+  }
+  //console.log(matches);
+  outputHtml(matches);
+};
+
+//show results in HTML
+const outputHtml = matches =>{
+  if(matches.length > 0){
+    const html = matches.map(
+      match => `
+      <div id = "${match.name}"class=" monsterGuess" onclick = "changeSearch(this.id)">${match.name}</div>`
+    ).join('');
+    matchList.style.visibility =  "visible";
+    matchList.innerHTML = html;
+  }
+}
+
+search.addEventListener('input', () => searchMonsters2(search.value));
+
+function changeSearch(id){
+  let textToChange = document.getElementById(id);
+  //console.log(textToChange.innerHTML);
+  let x = textToChange.innerHTML;
+  console.log(x);
+  search.value = x;
+  console.log(search.value)
+  matchList.style.visibility =  "hidden";
+  matchList.innerHTML = '';
+  findIndexMonster1();
+}
+
+
+
+
+
+
+
 const searchValue = document.getElementById("searchMonster");
 async function loadMonsterTable(url, table, searchValue){
     const tableBody = table.querySelector("tbody");
