@@ -14,7 +14,7 @@
         <a href="#" class = "navMovLink" onclick="changeSection(event, 'monsterList')">Monster List</a>
         <a href="#" class = "navMovLink" onclick="changeSection(event, 'createMonster')">Monster Stat Card</a>
         <a href="#" class = "navMovLink" onclick="changeSection(event, 'monsterSheets')">Monster create/Tracker</a>
-        <a href="#" class = "navMovLink" onclick="changeSection(event, 'characeterRoller')">Characeter Roller</a>
+        <a href="#" class = "navMovLink" onclick="changeSection(event, 'charRoller')">Characeter Roller</a>
     </div>
 
     <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
@@ -95,13 +95,11 @@
         <div id = "tabSection" class="tab"></div>
         
     </Article>
-    <Article id = "characeterRoller" class = "navMove">
-
-        </Article id = "skillArt">
+    <Article id = "charRoller" class = "navMove">
             <div class = "tab" id = "tab">
-            <button class = "tabLinks" onclick="changeSection(event, 'diceRoller')">Dice roller</button>
-            <button class = "tabLinks" onclick="changeSection(event, 'multipleDiceRoller')">Mutiple Dice Roller</button>
-            <button class = "tabLinks" onclick="changeSection(event, 'skillArt')">Skills</button>
+            <button class = "tabLinks" onclick="changeSection2(event, 'diceRoller')">Dice roller</button>
+            <button class = "tabLinks" onclick="changeSection2(event, 'multipleDiceRoller')">Mutiple Dice Roller</button>
+            <button class = "tabLinks" onclick="changeSection2(event, 'skillArt')">Skills</button>
             
             </div>
         <Article id = "skillArt" class = "tabContent">
@@ -250,5 +248,6 @@
     </Article>
     <script src="js/monster.js"></script>
     <script src="js/encounterTracker.js"></script>
+    <script src="js/charaecter.js"></script>
 </body>
 </html>
