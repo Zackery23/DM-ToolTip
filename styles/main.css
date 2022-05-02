@@ -281,12 +281,12 @@
 }
 
 /* Create an active/current tablink class */
-.tab button.active {
+/* .tab button.active {
   background-color: #ccc;
-}
+} */
 
 /* Style the tab content */
-.tabcontent {
+.tabContent {
   display: none;
 }
 /* html{
@@ -305,7 +305,7 @@
   border: none;
 }
 .hide_me{
-  width: 1em;
+  width: 1.5em;
   height: 1em;
   font-size: 135%;
 }
