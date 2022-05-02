@@ -674,7 +674,7 @@ function resizeInput() {
   this.style.width = this.value.length + "ch";
 }
 //function to run the tabs of the webiste to change when you click on the button of a particular section of the page
-function changeSection(evt, section) {
+function changeSection2(evt, section) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabContent");
     for (i = 0; i < tabcontent.length; i++) {
