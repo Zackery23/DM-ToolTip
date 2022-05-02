@@ -289,6 +289,47 @@
 .tabcontent {
   display: none;
 }
+/* html{
+  background-image: url("../images/720X720-logo.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+} */
+.skillButton{
+  background-image: url("../images/D20Button.png");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  height: 20px;
+  width: 17px;
+  border: none;
+}
+.hide_me{
+  width: 1em;
+  height: 1em;
+  font-size: 135%;
+}
+.charInfo{
+  width: 1em;
+  display:block;
+  
+}
+#diceRoller>button{
+  width: 5em;
+  height: 2em;
+  
+}
+#outRequest{
+  width: 5em;
+}
+/* input{
+  border-color: aqua;
+  width: 1em;
+} */
+/* button{
+  border-color:aqua;
+  background-color:darkblue;
+} */
   
   /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
   @media screen and (max-height: 450px) {
